@@ -1,0 +1,132 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<title></title>
+<link rel="stylesheet" type="text/css" href="https://media.twiliocdn.com/sdk/quickstart/guide.min.css">
+</head>
+<body>
+<div id="main">
+<h1 id="create-a-multi-party-conversation">Create a Multi-Party Conversation</h1>
+<h2 id="create-a-conversation">Create a Conversation</h2>
+<p>The changes required to send <code>Conversation</code> invitations from our Quickstart application are surprisingly small. In the previous step, we created a function called <code>conversationStarted</code>, which registered callbacks on events such as when a <code>Participant</code> connects or disconnects from a <code>Conversation</code>. <code>conversationStarted</code> was called when our <code>Endpoint</code> connected to a <code>Conversation</code> that our <code>Endpoint</code> was invited to, but we can reuse the same function for <code>Conversation</code>s we initiate.</p>
+<p>Although we haven't used it yet, we already have a button in our HTML that is intended to send a <code>Conversation</code> <code>Invite</code>. Let's wire up the button in <code>quickstart.js</code> (changes in <b>bold</b>):</p>
+<pre>endpoint.on('invite', function (invite) {
+    log('Incoming invite from: ' + invite.from);
+    invite.accept().then(conversationStarted);
+  });
+
+  <b>// bind button to create conversation
+  document.getElementById('button-invite').onclick = function () {
+    var inviteTo = document.getElementById('invite-to').value;
+
+      // create a conversation
+      var options = {};
+      if (previewMedia) {
+        options.localMedia = previewMedia;
+      }
+      endpoint.createConversation(inviteTo, options).then(
+        conversationStarted,
+        function (error) {
+          log('Unable to create conversation');
+          console.error('Unable to create conversation', error);
+        }
+      );
+    }
+  };
+</b>
+};</pre>
+<p>When the user clicks our 'Send Invite' button, we first check to see if camera preview is active. If so, we reuse <code>previewMedia</code>, our existing <code>LocalMedia</code> object, when we call <code>endpoint.createConversation</code>.</p>
+<h2 id="add-multi-party-support">Add Multi-Party Support</h2>
+<p>This will work for creating a new <code>Conversation</code>, but what if we want to invite an additional <code>Endpoint</code>? Right now, our code will create a new <code>Conversation</code> each time the user clicks 'Send Invite'. But we don't want to create a new <code>Conversation</code>, we want to invite someone else into the one we've already created.</p>
+<p>We'll solve this problem by storing a reference to the active <code>Conversation</code>, and checking whether it exists before creating a new one.</p>
+First, create a variable to store our active <code>Conversation</code>: <br /> <br />
+<pre>
+var endpoint;
+<b>var activeConversation;</b>
+var previewMedia;
+</pre>
+<p>Next, we need to check for the presence of an active <code>Conversation</code> before creating a new one. If an active <code>Conversation</code> exists, we call its <code>invite</code> method to send an <code>Invite</code> to an additional <code>Endpoint</code>:</p>
+<pre>
+  // bind button to create conversation
+  document.getElementById('button-invite').onclick = function () {
+    var inviteTo = document.getElementById('invite-to').value;
+
+    <b>if (activeConversation) {
+      // add a participant
+      activeConversation.invite(inviteTo);
+    } else {</b>
+      // create a conversation
+      var options = {};
+      if (previewMedia) {
+        options.localMedia = previewMedia;
+      }
+      endpoint.createConversation(inviteTo, options).then(
+        conversationStarted,
+        function (error) {
+          log('Unable to create conversation');
+          console.error('Unable to create conversation', error);
+        }
+      );
+    }
+  };
+</pre>
+<p>When a <code>Conversation</code> starts, we need to keep a reference to it in our <code>activeConversation</code> variable:</p>
+<pre>
+// conversation is live
+function conversationStarted(conversation) {
+  log('In an active Conversation');
+  <b>activeConversation = conversation;</b>
+  // draw local video, if not already previewing
+  if (!previewMedia) {
+    conversation.localMedia.attach('#local-media');
+  }
+</pre>
+<p>And finally, in our <code>conversationEnded</code> handler, we reset our active <code>Conversation</code> to null:</p>
+<pre>
+  // when the conversation ends, stop capturing local video
+  conversation.on('ended', function (conversation) {
+    log("Connected to Twilio. Listening for incoming Invites as + '" + endpoint.address + "'");
+    conversation.localMedia.stop();
+    conversation.disconnect();
+    <b>activeConversation = null;</b>
+  });
+</pre>
+<p>And that's it! In less than 150 lines of HTML &amp; JavaScript we have created a functional multi-party video communications app that is ready to be extended.</p>
+<p>However... Testing the multi-party setup isn't so easy. To simplify this tutorial, our Access Token--which controls the identity of our <code>Endpoint</code>--has been hard-coded in our <code>quickstart.js</code> file, so our application really only supports one named user at a time. We need three separate Access Tokens to establish a three-party <code>Conversation</code>. If you're feeling ambitious, feel free to charge and and implement an identification and/or authentication mechanism in your app... but! For the purposes of simply proving out this example, we'll add a quick hack to our JavaScript file that lets us distinguish between multiple users in just a few lines of code.</p>
+<p>First, generate two more Access Tokens using the <a href="https://www.twilio.com/user/account/video/testing-tools">Testing Tools</a> page of the Twilio Account Portal. Your Access Tokens should have different addresses (in the example below, I created Access Tokens using addresses 'alice', 'bob' and 'charlie').</p>
+<p>For now let's modify <code>quickstart.js</code> to register using one of our three pre-generated Access Tokens based on a username entry popup:</p>
+<pre>
+// check for WebRTC
+if (!navigator.webkitGetUserMedia && !navigator.mozGetUserMedia) {
+  alert("WebRTC is not available in your browser.");
+}
+
+<b>// choose between one of our three pre-generated Access Tokens
+var accessTokens = {'alice': 'mN0eSI6InR3aWxpby1zYXQ7dj0xI...',
+                    'bob': 'yJzdWIiOiJBQzhjYWEyYWZiOWQ1Mj...',
+                    'charlie': 'Hfbn76FVd8f6fG340B5dy4uRDvn1...'};
+var userName = prompt('Please enter your name - alice, bob or charlie.', 'alice');
+var accessToken = accessTokens[userName];</b>
+
+// create an Endpoint and connect to Twilio
+endpoint = new Twilio.Endpoint(accessToken);
+endpoint.listen().then(
+  endpointConnected,
+  function (error) {
+    log('Could not connect to Twilio: ' + error.message);
+  }
+);
+</pre>
+<blockquote>
+<p>Note: It's easy to dynamically generate Access Tokens on your own server. That way, you can provide an Access Token to every user that loads a web page, or retrieve tokens asynchronously using AJAX. To learn more, check the <a href="http://www.twilio.com/docs/api/rest/access-tokens">Access Tokens</a> documentation.</p>
+</blockquote>
+<p>We can now use our simple Quickstart app to listen for <code>Invite</code>s using three different addresses. Open three windows, choosing a different name in each one, and kick off a multi-party Conversation! You should end up with something like the following.</p>
+<h5 id="and...-voilà">And... Voilà!</h5>
+<div class="figure">
+<img src="images/voila.png" alt="" />
+
+</div>
+<h5 id="the-twilio-team-thanks-you-for-taking-part-in-the-twilio-rtc-javascript-beta">The Twilio team thanks you for taking part in the Twilio RTC JavaScript Beta!</h5>
+</div>
+</body>
+</html>

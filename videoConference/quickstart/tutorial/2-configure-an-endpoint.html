@@ -1,0 +1,78 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<title></title>
+<link rel="stylesheet" type="text/css" href="https://media.twiliocdn.com/sdk/quickstart/guide.min.css">
+</head>
+<body>
+<div id="main">
+<h2 id="configure-an-endpoint">Configure an Endpoint</h2>
+<h2 id="add-javascript">Add JavaScript</h2>
+<p>We have our HTML page up and running in a web server. But without JavaScript, our page doesn't do much.</p>
+<p>Copy the following JavaScript and add it to a new file called <code>quickstart.js</code> - this should live in the same directory as <code>quickstart.html</code>:</p>
+<pre>
+<b>var endpoint;
+
+// check for WebRTC
+if (!navigator.webkitGetUserMedia && !navigator.mozGetUserMedia) {
+  alert('WebRTC is not available in your browser.');
+}
+
+// generate an access token in the Twilio Account Portal - https://www.twilio.com/user/account/video/testing-tools
+window.accessToken = '';
+
+// create an Endpoint and connect to Twilio
+endpoint = new Twilio.Endpoint(accessToken);
+endpoint.listen().then(
+  endpointConnected,
+  function (error) {
+    log('Could not connect to Twilio: ' + error.message);
+  }
+);
+
+// successfully connected!
+function endpointConnected() {
+  document.getElementById('invite-controls').style.display = 'block';
+  log("Connected to Twilio. Listening for incoming Invites as '" + endpoint.address + "'");
+};
+
+// activity log
+function log(message) {
+  document.getElementById('log-content').innerHTML = message;
+};</b>
+</pre>
+<p>We'll be adding to <code>quickstart.js</code> throughout this tutorial. For now, we need to generate an Access Token that we'll use to identify ourselves to Twilio's backend services.</p>
+<h2 id="access-tokens">Access Tokens</h2>
+<blockquote>
+<p>Access Tokens are a secure way of granting your SDK Endpoints access to various features of Twilio. In a production scenario, you will generate Access Tokens on your server. Each Access Token specifies the capabilities you'd like to grant an Endpoint. Your server will provide the token to your client code, which will then use the token to authenticate to Twilio. This is the common authentication and authorization model for a Twilio RTC SDK application.</p>
+</blockquote>
+<p>For the purposes of this tutorial, we can generate a test Access Token on the <a href="https://www.twilio.com/user/account/video/testing-tools">Testing Tools</a> page of the Twilio Account Portal. The token will allow our Endpoint to access the Twilio Conversations service for one day before it expires. If you need a new one, you can revisit the page any time you like and generate another.</p>
+<p>Head over to the Account Portal and generate a demo Access Token. Make a note of the 'Endpoint Address' that you provide, as we'll need to use it later:</p>
+<div class="figure">
+<img src="images/generate-capability-token.png" alt="" />
+
+</div>
+<p>Copy and paste the Access Token you just generated into <code>quickstart.js</code> (changes in <b>bold</b>):</p>
+<pre>
+// check for WebRTC
+if (!navigator.webkitGetUserMedia && !navigator.mozGetUserMedia) {
+  alert("WebRTC is not available in your browser.");
+}
+
+<b>// generate an access token in the Twilio Account Portal - https://www.twilio.com/user/account/video/testing-tools
+window.accessToken = 'eyJ0eXAiOiGF4QiLCJhbGciO...';</b>
+
+// create an Endpoint and connect to Twilio
+endpoint = new Twilio.Endpoint(accessToken);
+endpoint.listen().then(
+  endpointConnected,
+  function (error) {
+    log('Could not connect to Twilio: ' + error.message);
+  }
+);
+</pre>
+<p>That's all we need to connect to Twilio and start participating in video Conversations. Refresh <code>quickstart.html</code> in your browser and you should see the log message update to &quot;Connected to Twilio. Listening for incoming Invites as <code>&lt;address&gt;</code>...&quot;</p>
+<p><a href="3-preview-your-camera.html">Next: Preview your Camera ➜</a></p>
+</div>
+</body>
+</html>

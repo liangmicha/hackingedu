@@ -1,0 +1,69 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<title></title>
+<link rel="stylesheet" type="text/css" href="https://media.twiliocdn.com/sdk/quickstart/guide.min.css">
+</head>
+<body>
+<div id="main">
+<h2 id="preview-your-camera">Preview your Camera</h2>
+<p>We want to use our camera (and microphone) to initiate an audio/video Conversation with another SDK Endpoint. But before making a call you'll most likely want to preview your camera and see how you're lookin'</p>
+<p>To do this we'll add the code below to <code>quickstart.js</code>.</p>
+First, create a new variable at the top of the file (changes in <b>bold</b>):
+<pre>
+var endpoint;
+<b>var previewMedia;</b>
+
+// check for WebRTC
+if (!navigator.webkitGetUserMedia && !navigator.mozGetUserMedia) {
+  alert("WebRTC is not available in your browser. Unfortunately this demo won't work :(");
+}
+</pre>
+<p>Then, at the bottom of the file, above our <code>log</code> function:</p>
+<pre> 
+<b>//  local video preview
+document.getElementById('button-preview').onclick = function () {
+  if (!previewMedia) {
+    previewMedia = new Twilio.LocalMedia();
+    Twilio.getUserMedia().then(
+      function (mediaStream) {
+        previewMedia.addStream(mediaStream);
+        previewMedia.attach('#local-media');
+      },
+      function (error) {
+        console.error('Unable to access local media', error);
+        log('Unable to access Camera and Microphone');
+      }
+    );
+  };
+};</b>
+
+// activity log
+function log(message) {
+  document.getElementById('log-content').innerHTML = message;
+};
+</pre>
+<blockquote>
+<p><code>Twilio.getUserMedia</code> is a cross-browser, Promise-based wrapper for <code>navigator.webkitGetUserMedia</code> / <code>navigator.MediaDevices.getUserMedia</code>. An instance of <code>LocalMedia</code> in the SDK represents the collection of video and audio tracks that we will send to other Participants in a Conversation. Without diving too deep into the WebRTC APIs, a <code>Media</code> object in the SDK can encapsulate any number of WebRTC <code>MediaStreams</code>, each of which can encapsulate multiple WebRTC <code>MediaStreamTracks</code>. Here, we retrieved a standard WebRTC <code>MediaStream</code> using <code>Twilio.getUserMedia</code> and added it to our <code>LocalMedia</code> instance called <code>previewMedia</code>.</p>
+</blockquote>
+<p>We are using the <code>attach</code> method of our <code>LocalMedia</code> object to preview our camera before sending it to anyone else. By passing a query selector to the <code>.attach()</code> method, it will automatically append and remove media elements of type <code>&lt;video&gt;</code> and <code>&lt;audio&gt;</code> to the target container element - in this case <code>&lt;div id=&quot;local-media&quot;&gt;</code>.</p>
+<p>Refresh the page in your browser, click the 'Preview Camera' button and you should be prompted for Camera and Microphone permissions:</p>
+<div class="figure">
+<img src="images/preview-getusermedia.png" alt="" />
+
+</div>
+<p>Click 'Allow', and you should see yourself staring back:</p>
+<div class="figure">
+<img src="images/preview-working.png" alt="" />
+
+</div>
+<p>If you don't see your own video feed after clicking 'Allow', make sure:</p>
+<ul>
+<li>You're using a supported browser - currently the latest versions of Chrome and Firefox on desktop</li>
+<li>Your system has a Camera and Microphone that is attached and working (evaluate using <a href="https://test.webrtc.org/">this page</a>)</li>
+</ul>
+<p>If you accidentally clicked 'Deny', try refreshing <code>quickstart.html</code> and clicking the 'Preview Camera' button again.</p>
+<p><a href="4-accept-conversation-invite.html">Next: Accept a Conversation Invite ➜</a></p>
+</div>
+</body>
+</html>

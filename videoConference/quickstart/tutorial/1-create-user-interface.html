@@ -1,0 +1,63 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<title></title>
+<link rel="stylesheet" type="text/css" href="https://media.twiliocdn.com/sdk/quickstart/guide.min.css">
+</head>
+<body>
+<div id="main">
+<h2 id="create-a-user-interface">Create a User Interface</h2>
+<p>Create a <strong>new</strong> directory somewhere on your development machine. Create a file named <code>quickstart.html</code> in it, with the following contents:</p>
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;html&gt;</span>
+  <span class="kw">&lt;head&gt;</span>
+    <span class="kw">&lt;title&gt;</span>Twilio Conversations - Video Quickstart<span class="kw">&lt;/title&gt;</span>
+    <span class="kw">&lt;link</span><span class="ot"> rel=</span><span class="st">&quot;stylesheet&quot;</span><span class="ot"> href=</span><span class="st">&quot;//media.twiliocdn.com/sdk/quickstart/rtc-conversations-quickstart.min.css&quot;</span><span class="kw">&gt;</span>
+  <span class="kw">&lt;/head&gt;</span>
+  <span class="kw">&lt;body&gt;</span>
+  <span class="kw">&lt;div</span><span class="ot"> id=</span><span class="st">&quot;remote-media&quot;</span><span class="kw">&gt;&lt;/div&gt;</span>
+  <span class="kw">&lt;div</span><span class="ot"> id=</span><span class="st">&quot;controls&quot;</span><span class="kw">&gt;</span>
+    <span class="kw">&lt;div</span><span class="ot"> id=</span><span class="st">&quot;preview&quot;</span><span class="kw">&gt;</span>
+      <span class="kw">&lt;p</span><span class="ot"> class=</span><span class="st">&quot;instructions&quot;</span><span class="kw">&gt;</span>Lookin&#39; good!<span class="kw">&lt;/p&gt;</span>
+      <span class="kw">&lt;div</span><span class="ot"> id=</span><span class="st">&quot;local-media&quot;</span><span class="kw">&gt;&lt;/div&gt;</span>
+      <span class="kw">&lt;button</span><span class="ot"> id=</span><span class="st">&quot;button-preview&quot;</span><span class="kw">&gt;</span>Preview My Camera<span class="kw">&lt;/button&gt;</span>
+    <span class="kw">&lt;/div&gt;</span>
+    <span class="kw">&lt;div</span><span class="ot"> id=</span><span class="st">&quot;invite-controls&quot;</span><span class="kw">&gt;</span>
+      <span class="kw">&lt;p</span><span class="ot"> class=</span><span class="st">&quot;instructions&quot;</span><span class="kw">&gt;</span>Invite an Endpoint<span class="kw">&lt;/p&gt;</span>
+      <span class="kw">&lt;input</span><span class="ot"> id=</span><span class="st">&quot;invite-to&quot;</span><span class="ot"> type=</span><span class="st">&quot;text&quot;</span><span class="ot"> placeholder=</span><span class="st">&quot;Address to send an invite to&quot;</span> <span class="kw">/&gt;</span>
+      <span class="kw">&lt;button</span><span class="ot"> id=</span><span class="st">&quot;button-invite&quot;</span><span class="kw">&gt;</span>Send Invite<span class="kw">&lt;/button&gt;</span>
+    <span class="kw">&lt;/div&gt;</span>
+    <span class="kw">&lt;div</span><span class="ot"> id=</span><span class="st">&quot;log&quot;</span><span class="kw">&gt;</span>
+      <span class="kw">&lt;p&gt;</span><span class="dv">&amp;gt;&amp;nbsp;</span><span class="kw">&lt;span</span><span class="ot"> id=</span><span class="st">&quot;log-content&quot;</span><span class="kw">&gt;</span>Preparing to listen<span class="kw">&lt;/span&gt;</span>...<span class="kw">&lt;/p&gt;</span>
+    <span class="kw">&lt;/div&gt;</span>
+  <span class="kw">&lt;/div&gt;</span><span class="co">&lt;!-- /controls --&gt;</span>
+  <span class="kw">&lt;script</span><span class="ot"> src=</span><span class="st">&quot;//media.twiliocdn.com/sdk/rtc/js/conversations/v0.8/twilio-rtc-conversations.min.js&quot;</span><span class="kw">&gt;&lt;/script&gt;</span>
+  <span class="kw">&lt;script</span><span class="ot"> src=</span><span class="st">&quot;quickstart.js&quot;</span><span class="kw">&gt;&lt;/script&gt;</span>
+  <span class="kw">&lt;/body&gt;</span>
+<span class="kw">&lt;/html&gt;</span></code></pre></div>
+<p>This HTML is all we need to create and display a multi-party video Conversation.</p>
+<h3 id="start-a-web-server">Start a Web Server</h3>
+<p>For security reasons, some web browsers don't allow access to your camera and microphone when a page is loaded using the <code>file://</code> protocol. Instead, we need to use the <code>http://</code> or <code>https://</code> protocol. That means we need to start a Web server.</p>
+<blockquote>
+<p>Note: Firefox users, this step may not be required. First try opening the file from your file system.</p>
+</blockquote>
+<p>There are many ways to start a web server and you may already have a preferred method. If that's the case, go for it! We'll meet you back here in a second. If not, you can try to launch a web server from your terminal using one of the commands below. Each command will serve up the contents of the current directory, so you need to execute it in the same location that you created <code>quickstart.html</code>. And be sure to kill the process when you're done!</p>
+<pre>
+<b>Python 2.x:</b>
+$ python -m SimpleHTTPServer 8080
+
+<b>Python 3.x:</b>
+$ python -m http.server 8080
+
+<b>PHP 5.4+:</b>
+$ php -S 127.0.0.1:8080
+
+<b>Ruby 1.9.2+:</b>
+$ ruby -run -ehttpd . -p8080
+</pre>
+<blockquote>
+<p><strong>Not working?</strong> Twilio has created scripts for Windows and Mac/Linux that will try these and other commands for you. You'll find the scripts in the quickstart directory of your beta download package. If you're having significant trouble serving up <code>quickstart.html</code> using a web server, you should consider installing Firefox and try simply opening the HTML file from the file system.</p>
+</blockquote>
+<p><a href="2-configure-an-endpoint.html">Next: Configure an Endpoint ➜</a></p>
+</div>
+</body>
+</html>
