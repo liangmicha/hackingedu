@@ -4,9 +4,13 @@ body {
   font-size: 15px;
   line-height: 1.7;
   margin: 0;
-  padding: 30px;
 }
-
+#results {
+    background-color: #eee;
+    padding:50px;
+    border:1px solid #000;
+    width:25px;
+}
 a {
   color: #4183c4;
   text-decoration: none;
@@ -60,3 +64,77 @@ p, ul {
 ul {
   padding-left: 30px;
 }
+
+.top-bar {
+    background-color: grey;
+    height: 200px;
+}
+
+.progress-bar-wrapper {
+    height: 100px;
+    width: 700px;
+}
+
+
+.button-wrapper {
+    height: 50px;
+}
+
+.chat {
+    height: 200px;
+}
+
+.chat-left {
+	background-image: url("profile1.png");
+	background-size: 100%;
+	background-repeat: no-repeat;
+	height: 200px;
+	width: 200px;
+	float: left;
+}
+.chat-right {
+	background-image: url("profile2.png");
+	background-size: 100%;
+	background-repeat: no-repeat;
+	height: 200px;
+	width: 200px;
+	float: right;
+}
+
+.progress-wrapper {
+    height: 100px;
+    width: 100%;
+    background-color: white;
+}
+
+button.btn-block.btn.btn-lg.btn-primary {
+    height: 50px;
+    margin: 30px;
+}
+
+.red {
+  background-color: red;
+}
+
+.orange {
+  background-color: orange;
+}
+
+.green {
+  background-color: green;
+}
+
+.video-box {
+    height: 100%;
+    width: 100%;
+}
+
+.topic－english {
+    height: 50px;
+    line-height: 50px;
+    font-size: 50px;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.script {}
