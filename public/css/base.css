@@ -700,4 +700,6 @@ span#profileContainer {
 
 div#profileName {
     vertical-align: top;
+    font-family: 'museo700';
+    font-size: 18px;
 }
