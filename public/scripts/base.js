@@ -27,7 +27,6 @@ var NotecardsList = React.createClass({
 	          {this.props.notecards.map(function(listValue, i){
 	          	var arrow = "Current Word";
 	          	if (i == this.props.index) {
-	          		console.log("here");
 	          		return (
 		            	<div className="listItem" key={i}>
 		            	    <div className="listValue"> {listValue} </div>
@@ -50,18 +49,64 @@ var NotecardsList = React.createClass({
 
 var SentenceList = React.createClass({
 	render: function() {
-	    return (
+		console.log("sentence list" + this.props.sentenceChinese);
+		if (this.props.notebookIndex == this.props.sentenceChinese.length - 1) {
+			return (
 	        <div className="phraseList">
-	          {this.props.sentence.map(function(listValue, i){
-	          	if (i == this.props.notebookIndex) {
-	                return <div className="sentenceListValue backgroundBlue" key={i}> {listValue} </div>;
-	            } else {
-	            	return <div className="sentenceListValue" key={i}> {listValue} </div>;
+	          {this.props.sentence.map(function(phraseEnglish, i){
+	          	var listValue = phraseEnglish;
+	          	var pinyin = this.props.sentenceChinese[i];
+	          	// do ONLY except last one.
+	          	if (i == this.props.sentenceChinese.length - 1) {
+	          		console.log("BLAH BLAH BLAH 1");
+	                return (
+		                <div className="sentenceWrapper" key={i}> 
+		                	<div className="sentenceListValue backgroundBlue"> {listValue} </div>
+		                	<div className="sentencePinyin"> {pinyin} </div>
+		                </div>
+		            )
+		        } else {
+		        	console.log("BLAH BLAH BLAH 2");
+		        	return (
+		        			 <div className="sentenceWrapper" key={i}> </div>
+		        	)
+		        }
+	         }, this)}
+	         </div>
+	         )
+		} else {
+			return (
+	        <div className="phraseList">
+	          {this.props.sentence.map(function(phraseEnglish, i){
+	          	var listValue = phraseEnglish;
+	          	var pinyin = this.props.sentenceChinese[i];
+	          	if (i == this.props.sentenceChinese.length - 1) {
+	          		console.log("BLAH BLAH BLAH 3");
+	                return (
+		                <div className="sentenceWrapper" key={i}> 
+		                </div>
+		            )
+		        } else if (i == this.props.notebookIndex) {
+		        	console.log("BLAH BLAH BLAH 4");
+	                return (
+		                <div className="sentenceWrapper" key={i}> 
+		                	<div className="sentenceListValue backgroundBlue"> {listValue} </div>
+		                	<div className="sentencePinyin"> {pinyin} </div>
+		                </div>
+		            )
+	        	} else {
+	        		console.log("BLAH BLAH BLAH 5");
+	            	return (
+		            	<div className="sentenceWrapper" key={i}> 
+		            		<div className="sentenceListValue"> {listValue} </div>
+		            	</div>
+		            )
 	            }
 	          }, this)}
 	        </div>
-	    );
-	},
+	        )
+	    }
+	}
 });
 var ProgressBar = React.createClass({
 	createStyle: function(percent, color) {
@@ -107,47 +152,54 @@ var LEVEL_ONE = {
 	progress: 0,
 	color: "red",
 	stage: "TRAVEL",
-	sentence: ["I", "want to", "travel", "to France"],
+	sentence: ["I", "want to", "travel", "to France.", "I want to travel to France."],
+	sentenceChinese: ["wo", "xiang yao", "lu you", "fa guo", "wo xiang yao qu fa guo"],
 	validated: [false, false, false, false, false],
-	notecards: ["I", "want to", "travel", "to France", "I want to travel to France"],
+	notecards: ["I", "want to", "travel", "to France."],
+	notecardsChinese: ["wo", "xiang yao", "lu you", "fa guo"],
 	notecardIndex: 0,
 	notecardsDone: [],
 	nextStage: false,
+	actualNextStage: false,
 };
 
 var LEVEL_TWO = {
 	progress: 0,
 	color: "red",
 	stage: "FOOD",
-	sentence: ["I", "want to", "eat", "10", "apples."],
+	notecards: ["I", "want", "to eat", "10", "apples."],
+	notecardsChinese: ["wo", "xiang", "chi", "shi ge", "ping guo"],
 	validated: [false, false, false, false, false, false],
-	notecards: ["I", "want to", "eat", "10", "apples.", "I want to eat 10 apples."],
+	sentence: ["I", "want", "to eat", "10", "apples.", "I want to eat 10 apples."],
+	sentenceChinese: ["wo", "xiang", "chi", "shi ge", "ping guo", "wo xiang chi shi ge ping guo"],
 	notecardIndex: 0,
 	notecardsDone: [],
 	nextStage: false,
+	actualNextStage: false,
 };
 
 var Content = React.createClass({
-  getInitialState: function() { 
+  getInitialState: function() {
   	return LEVEL_ONE;
   },
   handleClick: function() {
-  	console.log("click!!");
   	var newState = {};
   	var currentIndex = this.state.notecardIndex;
+  	if (this.state.nextStage) {
+  		// continue everything?
+  		newState['actualNextStage'] = true;
+  		return this.setState(newState);
+  	}
   	newState['notecardsDone'] = [];
-  	this.state.notecardsDone.push(this.state.notecards[currentIndex]);
-  	var newProgress = this.state.progress + 100.0/this.state.notecards.length;
+  	newState['notecardsDone'].push(this.state.notecards[currentIndex][0]);
+  	var newProgress = this.state.progress + 100.0/this.state.sentenceChinese.length;
   	newState['progress'] = Math.min(100, newProgress);
 	var newColor = "red";
   	if (newProgress < 50) {
-  		console.log("red");
   		newColor = "red";
   	} else if (newProgress > 50 && newProgress < 100) {
-  		console.log("orange");
         newColor = "orange";
   	} else if (newProgress >= 100) {
-  		console.log("green");
         newColor = "green";
   	}
   	newState['color'] = newColor;
@@ -157,20 +209,19 @@ var Content = React.createClass({
     newState['validated'][currentIndex] = 'Cleared';
     newState['sentence'] = this.state.sentence;
     newState['notecards'] = this.state.notecards;
-    console.log("length of newstate sentence is: " + newState['notecards'].length);
-    console.log("index is: " + newState['notecardIndex']);
-    if (newState['notecardIndex'] == newState['notecards'].length ) {
-        //advance to the next level (button)
+    newState['sentenceChinese'] = this.state.sentenceChinese;
+    newState['notecardsChinese'] = this.state.notecardsChinese;
+    if (newState['notecardIndex'] == newState['sentenceChinese'].length - 1) {
         newState['nextStage'] = true;
     }
   	return this.setState(newState);
   },
 
   handleNextStage: function() {
-  	console.log("next level clicked");
   	return this.setState(LEVEL_TWO);
   },
   render: function() {
+  	console.log("notecard index is " + this.state.notecardIndex);
     return (
       <div className="wrapper">
           <div className="left-panel">
@@ -180,20 +231,10 @@ var Content = React.createClass({
 				  </div>
 				 <div className="instructions"> Pronounce the highlighted word(s). </div>
 			   	  <div className="topic－english">
-			   	      <SentenceList sentence={this.state.sentence} notebookIndex={this.state.notecardIndex}> </SentenceList>
+			   	      <SentenceList sentence={this.state.sentence} sentenceChinese={this.state.sentenceChinese} notebookIndex={this.state.notecardIndex}> </SentenceList>
 			   	      <div className="pictureOfPhrase">
 			   	      </div>
 			   	  </div>
-			   </div>
-		       <div className="chat">
-			        <div className="chat-left">
-			          <div className="video-box">
-			          </div>
-			        </div>
-			        <div className="chat-right">
-			          <div className="video-box">
-			          </div>
-			        </div>
 			   </div>
 	          <div className="button-wrapper">
 	          	<Button bsStyle="primary" bsSize="large" onClick={this.handleClick} block>
@@ -213,7 +254,7 @@ var Content = React.createClass({
 		       <div className="message"> YAY, New words added to your notebook! </div>
 		       <div className="checkMyNoteBook"> Check my notebook </div>
 		   </div>
-		   <NextStageButton nextLevel={this.state.nextStage} onHandleNextStage={this.handleNextStage}> </NextStageButton>
+		   <NextStageButton nextLevel={this.state.actualNextStage} onHandleNextStage={this.handleNextStage}> </NextStageButton>
 	  </div>
     );
   }
