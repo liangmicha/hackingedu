@@ -1,0 +1,1051 @@
+{
+  "product_composite_response": {
+    "request_attributes": [
+      {
+        "name": "product_id",
+        "value": "055-02-3741"
+      },
+      {
+        "name": "key",
+        "value": "apiKey"
+      },
+      {
+        "name": "id_type",
+        "value": "dpci"
+      },
+      {
+        "name": "store_id",
+        "value": "530"
+      },
+      {
+        "name": "fields",
+        "value": "extended_core, ids, descriptions, pos_messages, item_hierarchies, product_hierarchies, geographic_compliance, recall, dimensions, brand, relations, entertainment, restrictions, locations, pricing, availability, in_store_locations, images, variations, reviews, user_attributes, color, size, pattern, license_asset, internal_images, vendor, nutrients, flexible_fulfillment, environmental, pharmacy, limited_segment, prepaid, store_product_type_hierarchy, store_merch_hierarchy, online_product_type_hierarchy, webclass_hierarchy, iac_categories, subscription, online_back_order, online_pre_order"
+      }
+    ],
+    "items": [
+      {
+        "relation": "SA",
+        "data_page_link": "http://www.target.com/p/godiva-dark-chocolate-truffles-4-oz/-/A-14016001",
+        "imn_identifier": 11228978,
+        "identifier": [
+          {
+            "id_type": "DPCI",
+            "id": "055-02-3741",
+            "is_primary": null,
+            "source": "Online and Store"
+          },
+          {
+            "id_type": "TCIN",
+            "id": "14016001",
+            "is_primary": null,
+            "source": "Online"
+          }
+        ],
+        "is_orderable": true,
+        "is_sellable": true,
+        "general_description": "4.0OZ GODIVA DARK CHOCOLATE TRUFFLES",
+        "business_process_status": [
+          {
+            "process_status": {
+              "is_ready": true,
+              "operation_description": "assortment ready",
+              "operation_code": "PAAP"
+            }
+          },
+          {
+            "process_status": {
+              "is_ready": true,
+              "operation_description": "import ready",
+              "operation_code": "PIPT"
+            }
+          },
+          {
+            "process_status": {
+              "is_ready": true,
+              "operation_description": "order ready",
+              "operation_code": "PORD"
+            }
+          },
+          {
+            "process_status": {
+              "is_ready": true,
+              "operation_description": "presentation ready",
+              "operation_code": "PPRS"
+            }
+          },
+          {
+            "process_status": {
+              "is_ready": true,
+              "operation_description": "project ready",
+              "operation_code": "PCMT"
+            }
+          },
+          {
+            "process_status": {
+              "is_ready": true,
+              "operation_description": "replenishment ready",
+              "operation_code": "PRPL"
+            }
+          },
+          {
+            "process_status": {
+              "is_ready": false,
+              "operation_description": "scale ready",
+              "operation_code": "PSCL"
+            }
+          },
+          {
+            "process_status": {
+              "is_ready": false,
+              "operation_description": "target.com ready",
+              "operation_code": "PTGT"
+            }
+          }
+        ],
+        "dpci": "055-02-3741",
+        "department_id": 55,
+        "class_id": 2,
+        "item_id": 3741,
+        "store_product": [
+          {
+            "location_data": {
+              "location_id": 530,
+              "status_code": "A",
+              "status_update_date": "2011-12-12T06:00:00Z",
+              "expected_inventory_outage": null,
+              "is_product_recalled_for_store": false,
+              "is_pos_weight_required": false,
+              "tare_weight_code": "",
+              "location_vendor": [
+                {
+                  "vendor_id": "1125528",
+                  "vendor_name": null,
+                  "return_instructions": {
+                    "id": "400375390",
+                    "is_primary_return_instruction_set": true
+                  }
+                }
+              ]
+            },
+            "price": {
+              "current_price_type_code": "",
+              "current_price": null,
+              "original_price": 3.99,
+              "display_original_price": "3.99"
+            },
+            "tax_classification_code": "C",
+            "selling_constraint": [
+              {
+                "compliance_program_code": "UPRUOM",
+                "value": "POUND"
+              }
+            ],
+            "flexible_fulfillment_capability": {
+              "is_hold": true,
+              "is_ship_to_guest": false,
+              "is_rush": false,
+              "is_ship_to_store": true
+            },
+            "inventory_determination_indicator": 0,
+            "is_kill_switch_enabled": false
+          }
+        ],
+        "operational_attribute_type": {
+          "buy_unit_of_measure_code": "EACH",
+          "sell_unit_of_measure_code": "EACH",
+          "employee_discount_percent": "10.00",
+          "guest_return_disposition_code": "AUDF",
+          "product_development_track_code": "CORE",
+          "primary_distribution_mode_code": "DSHP",
+          "sourcing_track_code": "STND",
+          "distribution_center_service_strategy": "01",
+          "is_inventory_controlled_by_store": false,
+          "is_selling_unit_of_measure_required": false,
+          "future_service_strategy": [],
+          "pricing_operational_attribute": {
+            "pricing_strategy_code": "OTH",
+            "pricing_strategy_description": "Other",
+            "pricing_category_code": "BEST",
+            "pricing_category_description": "Best",
+            "is_price_printed_on_package": false,
+            "price_printed_on_package": ".00",
+            "is_regular_price_only": false
+          },
+          "is_ingestible": true,
+          "manufacture_designation_code": "MUSA",
+          "manufacture_designation_description": "Made in the USA",
+          "product_definition_code": "NSAS",
+          "product_definition_description": "Not Sold in Assorted Size / Color",
+          "production_type_code": "",
+          "production_type_description": "",
+          "tax_classification_code": "09030",
+          "creation_date_time": "2011-04-18T05:00:00Z"
+        },
+        "online_back_order_type": "Store Only",
+        "online_max_order_quantity": 99,
+        "online_is_buyable": true,
+        "online_vendor": [
+          {
+            "tcv_id": 8859
+          }
+        ],
+        "store_product_type_hierarchy": {
+          "node": {
+            "id": "0L",
+            "description": "GROCERY",
+            "type_code": "PROD_TYPE",
+            "node": {
+              "id": "009",
+              "description": "CANDY",
+              "type_code": "PROD_STYPE",
+              "node": {
+                "id": "0004",
+                "description": "candy and chocolate",
+                "type_code": "MDSE_TYPE",
+                "node": {
+                  "id": "025T",
+                  "description": "candy and chocolate mixes",
+                  "type_code": "ITEM_TYPE"
+                }
+              }
+            }
+          }
+        },
+        "store_merch_hierarchy": {
+          "node": {
+            "id": "0010",
+            "description": "GROCERY",
+            "type_code": "GROUP",
+            "node": {
+              "id": "0024",
+              "description": "CNTR STR/GROC",
+              "type_code": "SUBGROUP",
+              "node": {
+                "id": "0019",
+                "description": "CENTER STORE/GROCERY",
+                "type_code": "DIVISION",
+                "node": {
+                  "id": "055",
+                  "description": "CANDY",
+                  "type_code": "DEPARTMENT",
+                  "node": {
+                    "id": "02",
+                    "description": "VALLEY AND NOVELTY",
+                    "type_code": "CLASS",
+                    "node": {
+                      "id": "0007",
+                      "description": "UPSCALE",
+                      "type_code": "SUBCLASS",
+                      "node": {
+                        "id": "ABO62",
+                        "description": "GODIVA",
+                        "type_code": "STYLE"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "online_product_type_hierarchy": [
+          {
+            "id": "100",
+            "description": "Target",
+            "type_code": "0",
+            "node": {
+              "id": "754007",
+              "description": "Featured Brands",
+              "type_code": "1",
+              "node": {
+                "id": "808502",
+                "description": "Grocery",
+                "type_code": "2",
+                "node": {
+                  "id": "717501",
+                  "description": "Godiva",
+                  "type_code": "3"
+                }
+              }
+            }
+          },
+          {
+            "id": "100",
+            "description": "Target",
+            "type_code": "0",
+            "node": {
+              "id": "5033",
+              "description": "grocery & essentials",
+              "type_code": "1",
+              "node": {
+                "id": "55501",
+                "description": "grocery ways to shop",
+                "type_code": "2",
+                "node": {
+                  "id": "553001",
+                  "description": "grocery store pickup eligible",
+                  "type_code": "3"
+                }
+              }
+            }
+          },
+          {
+            "id": "100",
+            "description": "Target",
+            "type_code": "0",
+            "node": {
+              "id": "5033",
+              "description": "grocery & essentials",
+              "type_code": "1",
+              "node": {
+                "id": "5038",
+                "description": "candy & gum",
+                "type_code": "2",
+                "node": {
+                  "id": "5078",
+                  "description": "candy variety packs",
+                  "type_code": "3"
+                }
+              }
+            }
+          }
+        ],
+        "webclass_hierarchy": {
+          "id": "55",
+          "description": "CANDY",
+          "type_code": "webclass",
+          "node": {
+            "id": "2",
+            "description": "2",
+            "type_code": "web subclass"
+          }
+        },
+        "classification_hierarchy": [
+          {
+            "type_code": "prod",
+            "node": {
+              "id": "0L",
+              "description": "GROCERY",
+              "status_code": "ACTV",
+              "node": {
+                "id": "009",
+                "description": "CANDY",
+                "status_code": "ACTV",
+                "node": {
+                  "id": "0004",
+                  "description": "candy and chocolate",
+                  "status_code": "ACTV",
+                  "node": {
+                    "id": "025T",
+                    "description": "candy and chocolate mixes",
+                    "status_code": "ACTV"
+                  }
+                }
+              }
+            }
+          },
+          {
+            "type_code": "merch",
+            "node": {
+              "id": "0010",
+              "description": "GROCERY",
+              "node": {
+                "id": "0024",
+                "description": "CNTR STR/GROC",
+                "node": {
+                  "id": "0019",
+                  "description": "CENTER STORE/GROCERY",
+                  "node": {
+                    "id": "055",
+                    "description": "CANDY",
+                    "status_code": "ACTV",
+                    "node": {
+                      "id": "02",
+                      "description": "VALLEY AND NOVELTY",
+                      "status_code": "ACTV",
+                      "node": {
+                        "id": "0007",
+                        "description": "UPSCALE",
+                        "status_code": "ACTV",
+                        "node": {
+                          "id": "ABO62",
+                          "description": "GODIVA",
+                          "status_code": "ACTV"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "type_code": "gpc",
+            "node": {
+              "id": "000000226",
+              "description": "Food/Beverage/Tobacco",
+              "node": {
+                "id": "000000282",
+                "description": "Confectionery/Sugar Sweetening Products",
+                "node": {
+                  "id": "000001496",
+                  "description": "Confectionery Products",
+                  "node": {
+                    "id": "000007702",
+                    "description": "Chocolate/Sugar Candy Combination - Confectionery"
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "iac_categories": {
+          "node": {
+            "id": "109420",
+            "description": "GROCERY",
+            "type_code": "IACGroup",
+            "node": {
+              "id": "109540",
+              "description": "CANDY",
+              "type_code": "IACSubGroup",
+              "node": {
+                "id": "120701",
+                "description": "candy and chocolate",
+                "type_code": "IACId",
+                "node": {
+                  "id": "428806",
+                  "description": "candy and chocolate mixes",
+                  "type_code": "ItemType"
+                }
+              }
+            }
+          }
+        },
+        "compliance": {
+          "compliance_program_geographic_area": [
+            {
+              "compliance_program_type_code": "HEAL",
+              "compliance_program_code": "FDST",
+              "geographic_area_type_code": "CTRY",
+              "geographic_area_id": "US",
+              "start_date": "2013-05-30",
+              "thru_date": "9999-12-31",
+              "compliance_program_description": "FOOD STAMP"
+            }
+          ],
+          "recall": {
+            "is_product_recalled": false,
+            "recall_source_code": null,
+            "recall_source_description": null
+          }
+        },
+        "dimension_set": {
+          "packaging_level_code": "ITEM",
+          "weight": 10.2,
+          "weight_unit_of_measure_code": "POUND",
+          "height": 4.4,
+          "width": 8.2,
+          "depth": 10.2,
+          "dimension_unit_of_measure_code": "INCH",
+          "displayed_weight_unit_of_measure_code": "",
+          "net_contents": 4,
+          "unit_package_quantity": 1,
+          "units_per_package_unit_of_measure_code": "",
+          "net_contents_unit_of_measure_code": "OUNCE"
+        },
+        "reference_data": {
+          "brand": [
+            {
+              "id": 2907,
+              "brand_name": "Godiva",
+              "use_code": "BRND",
+              "group_code": "NATL",
+              "is_royalty_applicable": false,
+              "abbreviation": "Godiva"
+            },
+            {
+              "id": 417,
+              "brand_name": "AUTHENTICS",
+              "use_code": "MFRB",
+              "group_code": "",
+              "is_royalty_applicable": false,
+              "abbreviation": "AUTHEN"
+            }
+          ],
+          "manufacturer_brand": "GODIVA"
+        },
+        "online_brand_name": "Godiva",
+        "segmentation": {
+          "entertainment_segmentation": {
+            "starting_sales_date": null,
+            "store_inventory_return_code": null,
+            "store_inventory_return_description": null,
+            "key_contributors": null,
+            "product_title": null
+          },
+          "environmental_segmentation": {
+            "environmentally_sensitive_waste_type_code": null,
+            "environmentally_sensitive_waste_type_description": null,
+            "is_environmentally_sensitive": false,
+            "is_flammable": false,
+            "is_hazardous_material": false,
+            "is_msds_required": false,
+            "is_agricultural_product": false
+          },
+          "pharmacy_segmentation": {
+            "federal_class_code": null,
+            "federal_dea_schedule_code": null,
+            "brand_generic_code": null,
+            "pharmacy_type_code": null
+          },
+          "is_serviced_by_vendor": false,
+          "is_random_weight": false,
+          "is_lot_controlled": false,
+          "softline_segmentation": {
+            "is_delicate_material": false
+          },
+          "is_softline": false,
+          "organic_segmentation": {
+            "organic_code": "NOGN"
+          },
+          "prepaid_segmentation": {
+            "prepaid_owner_code": null,
+            "denomination_option_code": null,
+            "is_reloadable": false,
+            "activation_barcode_format_code": null,
+            "minimum_purchase_amount": null,
+            "maximum_purchase_amount": null,
+            "prepaid_retail_option": [],
+            "prepaid_product_service_provider": [],
+            "currency_unit_of_measure_code": null
+          }
+        },
+        "in_store_location": [
+          {
+            "block": "W",
+            "aisle": 15,
+            "block_aisle": "W-15",
+            "floor": "01",
+            "section": 0,
+            "smart_schematic": "1-7-2"
+          },
+          {
+            "block": "W",
+            "aisle": 13,
+            "block_aisle": "W-13",
+            "floor": "01",
+            "section": 10,
+            "smart_schematic": "3-6-2"
+          }
+        ],
+        "user_defined_attribute": [
+          {
+            "id": "161355",
+            "description": "National Brand Assortment Differentiation",
+            "abbreviation": "Natl Brnd Asst",
+            "value_type_code": "LIST",
+            "sequence": "1",
+            "value": [
+              {
+                "id": "478719",
+                "description": "Limited Distribution",
+                "abbreviation": "Limited Distrib"
+              }
+            ]
+          },
+          {
+            "id": "150550",
+            "description": "state of readiness",
+            "abbreviation": "state readiness",
+            "value_type_code": "LIST",
+            "sequence": "1",
+            "value": [
+              {
+                "id": "434744",
+                "description": "ready to eat",
+                "abbreviation": "ready to eat"
+              }
+            ]
+          },
+          {
+            "id": "107883",
+            "description": "Product Weight",
+            "abbreviation": "Product Weight",
+            "value_type_code": "NMRC",
+            "sequence": "1",
+            "value": [
+              {
+                "id": null,
+                "description": "+00004.000",
+                "abbreviation": null
+              }
+            ]
+          },
+          {
+            "id": "115052",
+            "description": "Legally Required Information",
+            "abbreviation": "Legally Reqrd",
+            "value_type_code": "LIST",
+            "sequence": "1",
+            "value": [
+              {
+                "id": "320842",
+                "description": "Grocery Disclaimer",
+                "abbreviation": "Grocery Disc"
+              }
+            ]
+          },
+          {
+            "id": "112647",
+            "description": "Food Certifications",
+            "abbreviation": "Food Certificat",
+            "value_type_code": "LIST",
+            "sequence": "1",
+            "value": [
+              {
+                "id": "288451",
+                "description": "No Claim",
+                "abbreviation": "No Claim"
+              }
+            ]
+          },
+          {
+            "id": "148997",
+            "description": "serving size",
+            "abbreviation": "serving size",
+            "value_type_code": "NMRC",
+            "sequence": "1",
+            "value": [
+              {
+                "id": null,
+                "description": "+00004.000",
+                "abbreviation": null
+              }
+            ]
+          },
+          {
+            "id": "148964",
+            "description": "food and drink form 1",
+            "abbreviation": "food drink form",
+            "value_type_code": "LIST",
+            "sequence": "1",
+            "value": [
+              {
+                "id": "430474",
+                "description": "ball",
+                "abbreviation": "ball"
+              }
+            ]
+          },
+          {
+            "id": "148961",
+            "description": "purchase by weight",
+            "abbreviation": "purch by wght",
+            "value_type_code": "LIST",
+            "sequence": "1",
+            "value": [
+              {
+                "id": "430472",
+                "description": "no",
+                "abbreviation": "no"
+              }
+            ]
+          },
+          {
+            "id": "148956",
+            "description": "servings per container count",
+            "abbreviation": "srvgs per cont",
+            "value_type_code": "LIST",
+            "sequence": "1",
+            "value": [
+              {
+                "id": "430618",
+                "description": "approximate",
+                "abbreviation": "approximate"
+              }
+            ]
+          },
+          {
+            "id": "148955",
+            "description": "store location",
+            "abbreviation": "store location",
+            "value_type_code": "LIST",
+            "sequence": "1",
+            "value": [
+              {
+                "id": "430614",
+                "description": "dry",
+                "abbreviation": "dry"
+              }
+            ]
+          },
+          {
+            "id": "148953",
+            "description": "grocery container type",
+            "abbreviation": "container type",
+            "value_type_code": "LIST",
+            "sequence": "1",
+            "value": [
+              {
+                "id": "430130",
+                "description": "bag",
+                "abbreviation": "bag"
+              }
+            ]
+          },
+          {
+            "id": "148952",
+            "description": "container material",
+            "abbreviation": "container matrl",
+            "value_type_code": "LIST",
+            "sequence": "1",
+            "value": [
+              {
+                "id": "430431",
+                "description": "plastic",
+                "abbreviation": "plastic"
+              }
+            ]
+          },
+          {
+            "id": "148759",
+            "description": "package type",
+            "abbreviation": "package type",
+            "value_type_code": "LIST",
+            "sequence": "1",
+            "value": [
+              {
+                "id": "429832",
+                "description": "individual item multi-serving",
+                "abbreviation": "idvl item multi"
+              }
+            ]
+          },
+          {
+            "id": "148053",
+            "description": "perishability",
+            "abbreviation": "perishability",
+            "value_type_code": "LIST",
+            "sequence": "1",
+            "value": [
+              {
+                "id": "427858",
+                "description": "non-perishable",
+                "abbreviation": "non-perishable"
+              }
+            ]
+          },
+          {
+            "id": "148052",
+            "description": "storage state",
+            "abbreviation": "storage state",
+            "value_type_code": "LIST",
+            "sequence": "1",
+            "value": [
+              {
+                "id": "427856",
+                "description": "room temperature",
+                "abbreviation": "room temp"
+              }
+            ]
+          },
+          {
+            "id": "147952",
+            "description": "servings per container",
+            "abbreviation": "serv per cont",
+            "value_type_code": "NMRC",
+            "sequence": "1",
+            "value": [
+              {
+                "id": null,
+                "description": "+00003.000",
+                "abbreviation": null
+              }
+            ]
+          },
+          {
+            "id": "147751",
+            "description": "allergy statement, may contain",
+            "abbreviation": "allrgy may cntn",
+            "value_type_code": "LIST",
+            "sequence": "3",
+            "value": [
+              {
+                "id": "427636",
+                "description": "wheat",
+                "abbreviation": "wheat"
+              }
+            ]
+          },
+          {
+            "id": "147751",
+            "description": "allergy statement, may contain",
+            "abbreviation": "allrgy may cntn",
+            "value_type_code": "LIST",
+            "sequence": "1",
+            "value": [
+              {
+                "id": "427635",
+                "description": "peanuts",
+                "abbreviation": "peanuts"
+              }
+            ]
+          },
+          {
+            "id": "147751",
+            "description": "allergy statement, may contain",
+            "abbreviation": "allrgy may cntn",
+            "value_type_code": "LIST",
+            "sequence": "2",
+            "value": [
+              {
+                "id": "427419",
+                "description": "tree nuts",
+                "abbreviation": "tree nuts"
+              }
+            ]
+          },
+          {
+            "id": "147750",
+            "description": "allergy statement, contains",
+            "abbreviation": "allrgy contains",
+            "value_type_code": "LIST",
+            "sequence": "2",
+            "value": [
+              {
+                "id": "427625",
+                "description": "soy",
+                "abbreviation": "soy"
+              }
+            ]
+          },
+          {
+            "id": "147750",
+            "description": "allergy statement, contains",
+            "abbreviation": "allrgy contains",
+            "value_type_code": "LIST",
+            "sequence": "1",
+            "value": [
+              {
+                "id": "427617",
+                "description": "Milk",
+                "abbreviation": "Milk"
+              }
+            ]
+          }
+        ],
+        "unstructured_data": {
+          "image": [
+            {
+              "use_type_code": "ITEM",
+              "file_name": "http://xycimn.target.com/imnimages/8/9/78/000000011228978_003.png",
+              "image_resolution": "200X200",
+              "file_size": "2000",
+              "is_thumbnail": false,
+              "is_primary": true
+            },
+            {
+              "use_type_code": "ITEM",
+              "file_name": "http://xycimn.target.com/imnimages/8/9/78/000000011228978_003_004.jpg",
+              "image_resolution": "100X100",
+              "file_size": "1000",
+              "is_thumbnail": true,
+              "is_primary": true
+            }
+          ]
+        },
+        "location_id": "530",
+        "is_sold_in_specific_store": true,
+        "alternate_identifier": [
+          {
+            "id": "31290035175",
+            "id_type": "ML12",
+            "is_primary": false,
+            "type_description": "MFG LONG FORM (12 DIGITS)",
+            "category_code": "BRCD",
+            "vendor_barcode": [
+              {
+                "vendor_id": 1125528,
+                "is_primary_barcode": true
+              }
+            ],
+            "related_id": []
+          },
+          {
+            "id": "031290035175",
+            "id_type": "UPC",
+            "is_primary": true
+          }
+        ],
+        "wcs_catentry_id": 204745743,
+        "online_description": {
+          "value": "Godiva Dark Chocolate Truffles 4 oz",
+          "type": "GENL"
+        },
+        "store_description": {
+          "value": "4.0OZ GODIVA DARK CHOCOLATE TRUFFLES",
+          "type": "GENL"
+        },
+        "alternate_description": [
+          {
+            "type": "ADSG",
+            "value": "4-oz. Godiva</dark chocolate truffles",
+            "type_description": "Ad Signage Description"
+          },
+          {
+            "type": "POS",
+            "value": "GODIVA",
+            "type_description": "POS Desc"
+          },
+          {
+            "type": "SHLF",
+            "value": "4OZ GODIVA DK CHC TRFL",
+            "type_description": "Shelf Desc"
+          }
+        ],
+        "online_price": {
+          "current_price": "3.00",
+          "original_price": "3.99",
+          "map_price": null,
+          "list_price": "3.99",
+          "price_code": 1
+        },
+        "is_store_only_product_price_display": false,
+        "store_price": {
+          "current_price": null,
+          "original_price": "3.99",
+          "map_price": null,
+          "price_code": null
+        },
+        "online_availability": {
+          "item_status": "Active",
+          "availability_status": "out of stock online",
+          "availability_code": "6",
+          "available_quantity": null,
+          "channel_availability_status": "Available in Stores Only",
+          "channel_availability_code": 1,
+          "street_date": null,
+          "launch_date": "2012-04-15T05:00:00Z"
+        },
+        "store_availability": {
+          "item_status": "A",
+          "availability_status": "In Stock",
+          "availability_code": 3,
+          "available_quantity": 16,
+          "channel_availability_status": null,
+          "channel_availability_code": 1
+        },
+        "image": {
+          "internal_primary_image_url": [
+            "http://scene7.targetimg1.com/is/image/Target/14016001?wid=410&hei=410"
+          ],
+          "internal_alt_image_url": [
+            "http://scene7.targetimg1.com/is/image/Target/14016001?wid=410&hei=410"
+          ],
+          "internal_thumbnail_image_url": null,
+          "internal_swatch_image_url": [
+            "http://scene7.targetimg1.com/is/image/Target/14016001_Swatch?wid=40&hei=40"
+          ],
+          "external_primary_image_url": [
+            "http://scene7.targetimg1.com/is/image/Target/14016001?wid=410&hei=410"
+          ],
+          "external_alt_image_url": [
+            "http://scene7.targetimg1.com/is/image/Target/14016001?wid=410&hei=410"
+          ]
+        },
+        "online_variations": [
+          {
+            "id": "14016001",
+            "id_type": "TCIN",
+            "variations": [
+              {
+                "key": "image",
+                "value": [
+                  "http://scene7.targetimg1.com/is/image/Target/14016001_Swatch?wid=40&hei=40"
+                ]
+              }
+            ]
+          }
+        ],
+        "review": {
+          "consolidated_overall_rating": "5",
+          "total_reviews": "1"
+        },
+        "product_vendor": [
+          {
+            "status_code": "CMPL",
+            "vendor_item_id": "3517",
+            "vendor_id": "1125528",
+            "vendor_name": null
+          }
+        ],
+        "flexible_fulfillment_capability": {
+          "is_hold": true,
+          "is_ship_to_guest": false,
+          "is_rush": false,
+          "is_ship_to_store": false
+        },
+        "flexible_fulfillment_threshold": {
+          "department_threshold_low": 0,
+          "department_threshold_medium": 0,
+          "department_threshold_high": 0,
+          "department_class_threshold_low": 0,
+          "department_class_threshold_medium": 0,
+          "department_class_threshold_high": 0,
+          "department_class_item_threshold_low": 2,
+          "department_class_item_threshold_medium": 4,
+          "department_class_item_threshold_high": 6,
+          "department_class_item_threshold_manual": 0,
+          "department_class_item_threshold_setting": "L"
+        },
+        "flexible_fulfillment_capability_market_type": {
+          "hold_markets": [
+            {
+              "code": ""
+            }
+          ],
+          "ship_to_guest_markets": [],
+          "rush_markets": [],
+          "ship_to_store_markets": []
+        },
+        "channel_holdbacks": [
+          {
+            "channel_name": "holdbackEbay",
+            "holdback_quantity": 3
+          },
+          {
+            "channel_name": "holdbackTargetEStore",
+            "holdback_quantity": 3
+          }
+        ],
+        "subscription": {
+          "subscription_eligible": false
+        },
+        "online_back_order": {
+          "back_order_eligible": true,
+          "back_order_max_quantity": 99
+        },
+        "online_pre_order": {
+          "pre_order_eligible": false,
+          "pre_order_max_quantity": 0
+        },
+        "fulfillment": {
+          "is_hazardous_material": true,
+          "is_food": false,
+          "is_whenever_shipping_eligible": true,
+          "ship_to_restriction": "AS",
+          "is_po_box_prohibited": true
+        },
+        "purchase_enticement": {
+          "is_order_by_get_by_enabled": true,
+          "limited_quantity": {
+            "limited_quantity_higher": 5,
+            "limited_quantity_lower": 1,
+            "limited_quantity_threshold": 10,
+            "is_limited_quantity_enabled": true
+          }
+        }
+      }
+    ]
+  }
+}
