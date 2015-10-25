@@ -832,3 +832,31 @@ div#tim {
 #tim>video {
     width: 100%;
 }
+
+.overlayMatchingPage {
+    z-index: 3;
+    position: absolute;
+    height: 815px;
+    width: 100%;
+    /* background-color: rgb(245, 236, 198); */
+    opacity: 1.0;
+    top: 0px;
+    width: 100%;
+    background-image: url("matching.jpg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+.displaynone {
+    display: none;
+}
+
+.button-wrapper-fake {
+    height: 400px;
+    width: 100%;
+    margin-top: -100px;
+}
+
+.overlayMatchingPage:hover {
+    cursor: pointer;
+}

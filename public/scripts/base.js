@@ -5,6 +5,8 @@ var NextStageButton = React.createClass({
 				<div className="displaynone"> </div>
 			) 
 		} else {
+    var audio = new Audio('smw_course_clear.mp3');
+    audio.play();
 			return (
 				<div className="nextStageWrapper"> 
 				    <div className="card">
@@ -214,6 +216,11 @@ var Content = React.createClass({
   	actualNextState['notecardDone'] = this.state.notecardsDone;
   	return this.setState(actualNextState);
   },
+  handleMatchingClick: function() {
+  	console.log("click detected");
+  	$(".overlayMatchingPage").delay(1000).addClass("displaynone");
+  	console.log("changed.");
+  },
   render: function() {
   	console.log("here are the notecards done");
   	console.log(this.state.notecardsDone);
@@ -246,6 +253,7 @@ var Content = React.createClass({
   <span id="learningChinese"></span>
   <span id="logo"><img src="" alt="" id="logoimage"/></span>
 </div>
+<div className="overlayMatchingPage" onClick={this.handleMatchingClick}> </div>
 
 <div id="bottomContent">
   <NextStageButton nextLevel={this.state.actualNextStage} onHandleNextStage={this.handleNextStage} stage={this.state.stage}> </NextStageButton>
@@ -270,16 +278,12 @@ var Content = React.createClass({
   <div id="sectionRight"> <div id="notebookwrapper"><Notebook notecards={this.state.notecardsDone} sentence={this.state.sentenceChinese} index={this.state.notecardIndex} wordType={this.state.wordType}> 
 	</Notebook></div></div>
 
-      <div className="button-wrapper">
-        <Button bsStyle="primary" bsSize="large" onClick={this.handleClick} block>
-          Validate!
-        </Button>
-        <Button bsStyle="primary" bsSize="large" block>
-          Try again.
-        </Button>
+      <div className="button-wrapper-fake" onClick={this.handleClick}>
+
       </div>
   
-</div></div>
+</div>
+</div>
     );
   }
 });
@@ -294,7 +298,6 @@ ReactDOM.render(
        //vid.load();
 
      //twilio stuff
-     //console.log("am i learning? " + iAmlearning);
     if (iAmTeacher) {
 		var accessToken = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImN0eSI6InR3aWxpby1zYXQ7dj0xIn0.eyJqdGkiOiJTS2NkNmM0ZDk1OGNmYjMwZDc1ZmMwNWQzMjdjYTY4ZDk4LTE0NDU3MjYyMDIiLCJpc3MiOiJTS2NkNmM0ZDk1OGNmYjMwZDc1ZmMwNWQzMjdjYTY4ZDk4Iiwic3ViIjoiQUM3ZTEyYTUxNDYxMDljZjlhZWI2MWE1MDc5M2EzNTkzNSIsIm5iZiI6MTQ0NTcyNjIwMiwiZXhwIjoxNDQ1ODEyNjAyLCJncmFudHMiOlt7InJlcyI6Imh0dHBzOlwvXC9hcGkudHdpbGlvLmNvbVwvMjAxMC0wNC0wMVwvQWNjb3VudHNcL0FDN2UxMmE1MTQ2MTA5Y2Y5YWViNjFhNTA3OTNhMzU5MzVcL1Rva2Vucy5qc29uIiwiYWN0IjpbIlBPU1QiXX0seyJyZXMiOiJzaXA6anVnZW5tdUBBQzdlMTJhNTE0NjEwOWNmOWFlYjYxYTUwNzkzYTM1OTM1LmVuZHBvaW50LnR3aWxpby5jb20iLCJhY3QiOlsibGlzdGVuIiwiaW52aXRlIl19XX0.R4vXuifiBDSbnuQRA8zpyN_0vZe9pV8l75XImaWYKwE";
 		var endpoint = new Twilio.Endpoint(accessToken);
