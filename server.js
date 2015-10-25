@@ -21,6 +21,9 @@ var COMMENTS_FILE = path.join(__dirname, 'comments.json');
 app.set('port', (process.env.PORT || 3000));
 
 app.use('/', express.static(path.join(__dirname, 'public')));
+app.get('/blah',function(req, res){
+     res.sendFile(__dirname + '/public/index.html');
+});
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 

@@ -1,0 +1,5 @@
+		          <div className="button-wrapper">
+		          	<Button bsStyle="primary" bsSize="large" onClick={this.handleClick} block>
+		          	    Validate!
+		          	</Button>
+			   	  </div>

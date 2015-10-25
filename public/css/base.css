@@ -66,7 +66,7 @@ ul {
 }
 
 .top-bar {
-    background-color: grey;
+    /* background-color: grey; */
     height: 200px;
 }
 
@@ -79,7 +79,7 @@ ul {
 .button-wrapper {
     height: 50px;
     float: left;
-    width: 50px;
+    width: 200px;
 }
 
 .chat {
@@ -105,9 +105,22 @@ ul {
 }
 
 .progress-wrapper {
-    height: 100px;
+    /* height: 100px; */
     width: 100%;
-    background-color: white;
+    /* background-color: green; */
+    /* padding-top: 10px; */
+    /* padding-bottom: 10px; */
+    marign-top: 10px;
+    /* margin-top: 10px; */
+    /* margin-bottom: 10px; */
+    height: 50px;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    /* border-radius: 10%; */
 }
 
 button.btn-block.btn.btn-lg.btn-primary {
@@ -136,10 +149,11 @@ button.btn-block.btn.btn-lg.btn-primary {
     line-height: 50px;
     font-size: 42px;
     float: left;
-    margin-left: 108px;
+    /* margin-left: 108px; */
     line-height: 100px;
     height: 100px;
-    width: 500px;
+    /* width: 500px; */
+    width: 100%;
 }
 
 .currentPhrase {
@@ -155,4 +169,107 @@ button.btn-block.btn.btn-lg.btn-primary {
 
 .random {
     /* font-size: 100px; */
+}
+
+.sentenceListValue {
+    float: left;
+    margin-left: 10px;
+}
+
+.sentenceListValue:hover {
+    cursor: pointer;
+    background-color: blue;
+}
+
+.backgroundBlue {
+	background-color: blue;
+}
+
+.top-of-top {
+    height: 100px;
+    /* background-color: lightgray; */
+}
+
+.container {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 300px;
+}
+
+.wrapper {
+    background-color: lightgrey;
+}
+
+.instructions {
+    margin-left: 100px;
+}
+
+.phraseList {
+    text-align: center;
+    width: 500px;
+    height: 100px;
+    margin: 0 auto;
+}
+
+.pictureOfPhrase {
+    margin: 0 auto;
+    width: 400px;
+    text-align: center;
+}
+
+.pictureOfPhrase {
+    background-image: url("france.gif");
+}
+
+
+.pictureOfPhrase {
+    height: 100px;
+    width: 100px;
+    background-size: 100%;
+}
+
+.wrapper {
+    /* float: left; */
+}
+
+.left-panel {
+    float: left;
+    width: 650px;
+    height: 1000px;
+}
+
+.rightPanel {
+float: left;width: 350px;height: 1000px;}
+
+.container {
+    width: 300px;
+}
+
+.stage {}
+
+.actualStage {
+    text-align: center;
+    font-size: 50px;
+}
+
+.listValue {
+    height: 50px;
+    font-size: 20px;
+}
+
+.left-panel {}
+
+span {}
+
+.validatedField {
+    float: right;
+}
+
+.listValue {
+    float: left;
+}
+
+.listItem {
+    height: 50px;
 }
