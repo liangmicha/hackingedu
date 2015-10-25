@@ -222,14 +222,24 @@ var Content = React.createClass({
   </div>
 </div>
 <div id="topbar">
-  <span id="profile"><ProgressBar color={this.state.color} progress={this.state.progress} /></span>
+  <span id="profile">
+  <span id="profilePicturetop"></span><span id="profileContainer">
+	  <div id="profileName">Sebastian</div>
+	  <div id="progressBarContainer"></div>
+	</span>
+
+  <ProgressBar color={this.state.color} progress={this.state.progress} /></span>
   <span id="learningChinese"></span>
   <span id="logo"><img src="" alt="" id="logoimage"/></span>
 </div>
 
 <div id="bottomContent">
   
-  <div id="sectionLeft"><NotecardsList notecards={this.state.notecards} index={this.state.notecardIndex} validated={this.state.validated}> </NotecardsList>
+  <div id="sectionLeft">
+  	<div id="stageTitle" className="sectionHeader">
+	<span id="stageTitle" className="sectionTitleHeader">Stage</span><span id="stageDetails">Travel</span>
+  	</div>
+  <NotecardsList notecards={this.state.notecards} index={this.state.notecardIndex} validated={this.state.validated}> </NotecardsList>
   </div>
   <div id="sectionMiddle"><video id="video1" width="320" height="176">
       <source src="video.mp4" type="video/mp4"></source>
