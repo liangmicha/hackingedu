@@ -139,6 +139,7 @@ ul {
     height: 50px;
     float: left;
     width: 200px;
+    position: fixed;
 }
 
 .chat {
@@ -235,7 +236,10 @@ button.btn-block.btn.btn-lg.btn-primary {
 
 .sentenceListValue {
     float: left;
-    margin-left: 10px;
+    padding: 5px;
+    /* margin-left: 10px; */
+    vertical-align: middle;
+    font-family: "Arial Rounded MT", Arial, Helvetica, sans-serif;
 }
 
 .sentenceListValue:hover {
@@ -244,7 +248,8 @@ button.btn-block.btn.btn-lg.btn-primary {
 }
 
 .backgroundBlue {
-	background-color: blue;
+	background-color: #FFDD00;
+	border-radius: 5px;
 }
 
 .top-of-top {
@@ -269,9 +274,12 @@ button.btn-block.btn.btn-lg.btn-primary {
 
 .phraseList {
     text-align: center;
-    width: 100%;
-    height: 200px;
+    width: 270px;
+    height: 50px;
     margin: 0 auto;
+    padding-top: 6px;
+    font-family: "Arial Rounded MT", Arial, Helvetica, sans-serif;
+    /* border-bottom: solid 1px black; */
 }
 
 .pictureOfPhrase {
@@ -322,7 +330,9 @@ float: left;width: 300px;/* height: 1000px; */}
 
 .left-panel {}
 
-span {}
+span {
+    font-family: "Arial Rounded MT", Arial, Helvetica, sans-serif;
+}
 
 .validatedField {
     float: right;
@@ -341,11 +351,12 @@ span {}
 
 .nextStageWrapper {
     z-index: 3;
-    position: fixed;
+    position: absolute;
     height: 100%;
     width: 100%;
     background-color: orange;
     opacity: 1.0;
+    top: 81px;
 }
 
 .nextStageMessage {
@@ -409,6 +420,8 @@ video#video2 {
 
 .sentenceWrapper {
     float: left;
+    vertical-align: middle;
+    padding: 5px;
 }
 
 .sentencePinyin {
@@ -515,7 +528,7 @@ div#sectionMiddle {
     width: 40%;
     vertical-align: top;
     background: white;
-    height: 610px;
+    height: 625px;
     border-radius: 15px;
     overflow: hidden;
     box-shadow: 0 1px 11px rgba(0, 0, 0, 0.26);
@@ -702,4 +715,36 @@ div#profileName {
     vertical-align: top;
     font-family: 'museo700';
     font-size: 18px;
+}
+
+.translatedWord {
+    text-align: center;
+    vertical-align: middle;
+    font-size: 67px;
+    height: 100%;
+    /* padding-top: 48px; */
+    border-top: solid 1px rgba(128, 128, 128, 0.22);
+    display: table-cell;
+}
+
+.listItem.current {
+    background: rgba(255, 221, 0, 0.52);
+}
+
+.listItem.notDone {
+    opacity: 0.5;
+}
+
+.statusValidated {
+    background: red;
+    width: 40px;
+    height: 40px;
+    right: 20px;
+    position: absolute;
+}
+
+.translatedWordCont {
+    display: table;
+    width: 100%;
+    height: 178px;
 }

@@ -27,20 +27,28 @@ var NotecardsList = React.createClass({
 	          {this.props.notecards.map(function(listValue, i){
 	          	var arrow = "Current Word";
 	          	if (i == this.props.index) {
+
 	          		return (
-		            	<div className="listItem" key={i}>
+		            	<div className="listItem current" key={i}>
 		            	    <div className="listValue"> {listValue} </div>
-		            	    <div className="currentWordArrow"> </div>
+		            	    <div className="statusCurrent"> </div>
 		            	</div>
 		            )
-	          	} else {
+	          	} else if (this.props.validated[i]) {
 		            return (
-		            	<div className="listItem" key={i}>
+		            	<div className="listItem validated" key={i}>
 		            	    <div className="listValue"> {listValue} </div>
-		            	    <div className="validatedField"> {this.props.validated[i]} </div>
+		            	    <div className="statusValidated"></div>
 		            	</div>
 		            )
-		        }
+		        } else {
+		            return (
+		            	<div className="listItem notDone" key={i}>
+		            	    <div className="listValue"> {listValue} </div>
+		            	    <div className="statusNotDone">  </div>
+		            	</div>
+		            )
+		        }	
 	          }, this)}
 	        </div>
 	    );
@@ -154,7 +162,7 @@ var Content = React.createClass({
   	var currentIndex = this.state.notecardIndex;
   	newState['notecardsDone'] = [];
   	newState['notecardsDone'].push(this.state.notecards[currentIndex][0]);
-  	var newProgress = this.state.progress + 100.0/this.state.sentenceChinese.length;
+  	var newProgress = this.state.progress + 50.0/this.state.sentenceChinese.length;
   	newState['progress'] = Math.min(100, newProgress);
 	var newColor = "red";
   	if (newProgress < 50) {
@@ -204,16 +212,16 @@ var Content = React.createClass({
   <span id="profile">
   <span id="profilePicturetop"></span><span id="profileContainer">
 	  <div id="profileName">Sebastian</div>
-	  <div id="progressBarContainer"></div>
+	  <div id="progressBarContainer">  <ProgressBar color={this.state.color} progress={this.state.progress} /></div>
 	</span>
 
-  <ProgressBar color={this.state.color} progress={this.state.progress} /></span>
+</span>
   <span id="learningChinese"></span>
   <span id="logo"><img src="" alt="" id="logoimage"/></span>
 </div>
 
 <div id="bottomContent">
-  
+  <NextStageButton nextLevel={this.state.actualNextStage} onHandleNextStage={this.handleNextStage}> </NextStageButton>
   <div id="sectionLeft">
   	<div id="stageTitle" className="sectionHeader">
 	<span id="stageTitle" className="sectionTitleHeader">Stage</span><span id="stageDetails">Travel</span>
@@ -224,21 +232,14 @@ var Content = React.createClass({
       <source src="video.mp4" type="video/mp4"></source>
       </video> 
       <SentenceList sentence={sentenceToSend} index={this.state.notecardIndex} highlightAll={highlightAll}>
-	 </SentenceList>
-	 			      <div className="translatedWord">
+	 </SentenceList><table className="translatedWordCont"><tbody><tr>
+	 			      <td className="translatedWord">
 			    	  {sentenceChineseToSend[this.state.notecardIndex]}
-			      </div>
+			      </td></tr></tbody></table>
   </div>
   <div id="sectionRight">
 
-			<div id="bottomContent">
-			  
-			  <div id="sectionLeft"><NotecardsList notecards={this.state.notecards} index={this.state.notecardIndex} validated={this.state.validated}> </NotecardsList>
-			  </div>
-			  <div id="sectionRight">
-
-			    <div className="left-panel">
-
+</div>
 			      <div className="button-wrapper">
 			        <Button bsStyle="primary" bsSize="large" onClick={this.handleClick} block>
 			          Validate!
@@ -247,24 +248,7 @@ var Content = React.createClass({
 			          Try again.
 			        </Button>
 			      </div>
-			    </div>
-			    <div className="rightPanel"> 
-			     <div className="stage"> 
-			       <div className="stageText"> Stage: </div> 
-			       <div className="actualStage"> {this.state.stage}</div>
-			     </div>
-			     
-			     <div className="message"> YAY, New words added to your notebook! </div>
-			     <div className="checkMyNoteBook"> Check my notebook </div>
-			   </div>
-			   <NextStageButton nextLevel={this.state.actualNextStage} onHandleNextStage={this.handleNextStage}> </NextStageButton>
-			 </div>
-			</div>
-
-
-		</div>
-</div>
-</div>
+</div></div>
     );
   }
 });
