@@ -164,13 +164,13 @@ var Content = React.createClass({
   	newState['notecardsDone'].push(this.state.notecards[currentIndex][0]);
   	var newProgress = this.state.progress + 50.0/this.state.sentenceChinese.length;
   	newState['progress'] = Math.min(100, newProgress);
-	var newColor = "red";
+	var newColor = "#19bdce";
   	if (newProgress < 50) {
-  		newColor = "red";
+  		newColor = "#19bdce";
   	} else if (newProgress > 50 && newProgress < 100) {
-        newColor = "orange";
+        newColor = "#19bdce";
   	} else if (newProgress >= 100) {
-        newColor = "green";
+        newColor = "#19bdce";
   	}
   	newState['color'] = newColor;
   	newState['notecardIndex'] = currentIndex + 1;
