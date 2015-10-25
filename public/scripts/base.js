@@ -115,17 +115,37 @@ var MyProgressBar = React.createClass({
 		)
 	}
 });
+
+var Notebook = React.createClass({
+	render: function() {
+		return (
+	        <div className="notebookList">
+	          {this.props.notecards.map(function(phraseEnglish, i){
+	                return (
+		                <div className="notebookPhraseWrapper" key={i}> 
+		                	<div className="notebookPhrase" > {phraseEnglish} </div>
+		                	<div className="notebookTranslated"> {this.props.sentence[i]} </div>
+		                	<div className="notebookWordType"> {this.props.wordType[i]} </div>
+		                </div>
+		            )
+		        }, this)}
+	       </div>
+       )
+	},
+});
+
 var Button = ReactBootstrap.Button;
 
 var LEVEL_ONE = {
 	progress: 0,
 	color: "red",
 	stage: "TRAVEL",
-	sentence: ["I", "want", "to go", "to France.", "I want to travel to France."],
+	sentence: ["I", "want", "to go", "to France.", "I want to go to France."],
 	sentenceChinese: ["wo", "xiang", "qu", "fa guo", "wo xiang yao qu fa guo"],
 	validated: [false, false, false, false, false],
-	notecards: ["I", "want", "to go", "to France.", "I want to travel to France."],
+	notecards: ["I", "want", "to go", "to France.", "I want to go to France."],
 	notecardsChinese: ["wo", "xiang", "qu", "fa guo", "wo xiang yao qu fa guo"],
+	wordType: ["pronoun", "verb", "verb", "noun"],
 	notecardIndex: 0,
 	notecardsDone: [],
 	nextStage: false,
@@ -142,12 +162,14 @@ var LEVEL_TWO = {
 	validated: [false, false, false, false, false, false],
 	sentence: ["I", "want", "to eat", "10", "apples.", "I want to eat 10 apples."],
 	sentenceChinese: ["wo", "xiang", "chi", "shi ge", "ping guo", "wo xiang chi shi ge ping guo"],
+	wordType: ["pronoun", "verb", "verb", "measure", "noun"],
 	notecardIndex: 0,
 	notecardsDone: [],
 	nextStage: false,
 	actualNextStage: false,
 	highlightall: false,
 };
+
 
 var Content = React.createClass({
   getInitialState: function() {
@@ -160,8 +182,8 @@ var Content = React.createClass({
   		return this.setState(newState);
   	}
   	var currentIndex = this.state.notecardIndex;
-  	newState['notecardsDone'] = [];
-  	newState['notecardsDone'].push(this.state.notecards[currentIndex][0]);
+  	newState['notecardsDone'] = this.state.notecardsDone;
+  	newState['notecardsDone'].push(this.state.notecards[currentIndex]);
   	var newProgress = this.state.progress + 50.0/this.state.sentenceChinese.length;
   	newState['progress'] = Math.min(100, newProgress);
 	var newColor = "#19bdce";
@@ -191,13 +213,16 @@ var Content = React.createClass({
   	return this.setState(LEVEL_TWO);
   },
   render: function() {
+  	console.log("here are the notecards done");
+  	console.log(this.state.notecardsDone);
+  	console.log("end");
   	var sentenceToSend = this.state.sentence;
   	var sentenceChineseToSend = this.state.sentenceChinese;
   	var highlightAll = false;
   	if (this.state.notecardIndex < this.state.sentence.length-1 ) {
   		sentenceToSend  = sentenceToSend.slice(0, this.state.sentence.length-1);
   	} else if (this.state.notecardIndex == this.state.sentence.length-1) {
-  		sentenceToSend  = sentenceToSend.slice(this.state.sentence.length-1, this.state.sentence.length)
+  		sentenceToSend  = sentenceToSend.slice(this.state.sentence.length-1, this.state.sentence.length);
   		highlightAll = true;
   	}
     return (
@@ -237,9 +262,12 @@ var Content = React.createClass({
 			    	  {sentenceChineseToSend[this.state.notecardIndex]}
 			      </td></tr></tbody></table>
   </div>
-  <div id="sectionRight">
+  <div id="sectionRight"> </div>
 
-</div>
+
+	<Notebook notecards={this.state.notecardsDone} sentence={this.state.sentenceChinese} index={this.state.notecardIndex} wordType={this.state.wordType}> 
+	</Notebook>
+
 			      <div className="button-wrapper">
 			        <Button bsStyle="primary" bsSize="large" onClick={this.handleClick} block>
 			          Validate!
