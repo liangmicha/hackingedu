@@ -49,7 +49,6 @@ var NotecardsList = React.createClass({
 
 var SentenceList = React.createClass({
 	render: function() {
-		console.log("sentence list" + this.props.sentenceChinese);
 		if (this.props.notebookIndex == this.props.sentenceChinese.length - 1) {
 			return (
 	        <div className="phraseList">
@@ -58,7 +57,6 @@ var SentenceList = React.createClass({
 	          	var pinyin = this.props.sentenceChinese[i];
 	          	// do ONLY except last one.
 	          	if (i == this.props.sentenceChinese.length - 1) {
-	          		console.log("BLAH BLAH BLAH 1");
 	                return (
 		                <div className="sentenceWrapper" key={i}> 
 		                	<div className="sentenceListValue backgroundBlue"> {listValue} </div>
@@ -66,7 +64,6 @@ var SentenceList = React.createClass({
 		                </div>
 		            )
 		        } else {
-		        	console.log("BLAH BLAH BLAH 2");
 		        	return (
 		        			 <div className="sentenceWrapper" key={i}> </div>
 		        	)
@@ -81,13 +78,11 @@ var SentenceList = React.createClass({
 	          	var listValue = phraseEnglish;
 	          	var pinyin = this.props.sentenceChinese[i];
 	          	if (i == this.props.sentenceChinese.length - 1) {
-	          		console.log("BLAH BLAH BLAH 3");
 	                return (
 		                <div className="sentenceWrapper" key={i}> 
 		                </div>
 		            )
 		        } else if (i == this.props.notebookIndex) {
-		        	console.log("BLAH BLAH BLAH 4");
 	                return (
 		                <div className="sentenceWrapper" key={i}> 
 		                	<div className="sentenceListValue backgroundBlue"> {listValue} </div>
@@ -95,7 +90,6 @@ var SentenceList = React.createClass({
 		                </div>
 		            )
 	        	} else {
-	        		console.log("BLAH BLAH BLAH 5");
 	            	return (
 		            	<div className="sentenceWrapper" key={i}> 
 		            		<div className="sentenceListValue"> {listValue} </div>
@@ -110,8 +104,6 @@ var SentenceList = React.createClass({
 });
 var ProgressBar = React.createClass({
 	createStyle: function(percent, color) {
-		console.log(percent);
-		console.log(color);
 		var divStyle = {
 			backgroundColor: color,
 			width: percent + '%',
@@ -221,7 +213,6 @@ var Content = React.createClass({
   	return this.setState(LEVEL_TWO);
   },
   render: function() {
-  	console.log("notecard index is " + this.state.notecardIndex);
     return (
       <div className="wrapper">
           <div className="left-panel">
