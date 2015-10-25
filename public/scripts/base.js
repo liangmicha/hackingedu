@@ -214,39 +214,58 @@ var Content = React.createClass({
   },
   render: function() {
     return (
-      <div className="wrapper">
-          <div className="left-panel">
-		      <div className="top-bar">
-		          <div className="top-of-top">
-			          <ProgressBar color={this.state.color} progress={this.state.progress} />
-				  </div>
-				 <div className="instructions"> Pronounce the highlighted word(s). </div>
-			   	  <div className="topic－english">
-			   	      <SentenceList sentence={this.state.sentence} sentenceChinese={this.state.sentenceChinese} notebookIndex={this.state.notecardIndex}> </SentenceList>
-			   	      <div className="pictureOfPhrase">
-			   	      </div>
-			   	  </div>
-			   </div>
-	          <div className="button-wrapper">
-	          	<Button bsStyle="primary" bsSize="large" onClick={this.handleClick} block>
-	          	    Validate!
-	          	</Button>
-	            <Button bsStyle="primary" bsSize="large" block>
-	          	    Try again.
-	          	</Button>
-		   	  </div>
-			</div>
-			<div className="rightPanel"> 
-		       <div className="stage"> 
-		           <div className="stageText"> Stage: </div> 
-		           <div className="actualStage"> {this.state.stage}</div>
-		       </div>
-		       <NotecardsList notecards={this.state.notecards} index={this.state.notecardIndex} validated={this.state.validated}> </NotecardsList>
-		       <div className="message"> YAY, New words added to your notebook! </div>
-		       <div className="checkMyNoteBook"> Check my notebook </div>
-		   </div>
-		   <NextStageButton nextLevel={this.state.actualNextStage} onHandleNextStage={this.handleNextStage}> </NextStageButton>
-	  </div>
+      
+<div className="wrapper">
+  <div id="bgwrapper">
+    <div id="bgpicture">
+    </div><div id="bgtexture">
+  </div>
+</div>
+<div id="topbar">
+  <span id="profile"><ProgressBar color={this.state.color} progress={this.state.progress} /></span>
+  <span id="learningChinese"></span>
+  <span id="logo"><img src="" alt="" id="logoimage"/></span>
+</div>
+
+<div id="bottomContent">
+  
+  <div id="sectionLeft"><NotecardsList notecards={this.state.notecards} index={this.state.notecardIndex} validated={this.state.validated}> </NotecardsList>
+  </div>
+  <div id="sectionMiddle"><video id="video1" width="320" height="176">
+      <source src="video.mp4" type="video/mp4"></source>
+      </video> <SentenceList sentence={this.state.sentence} sentenceChinese={this.state.sentenceChinese} notebookIndex={this.state.notecardIndex}> </SentenceList></div>
+  <div id="sectionRight">
+
+    <div className="left-panel">
+
+
+      
+     
+      <div className="button-wrapper">
+        <Button bsStyle="primary" bsSize="large" onClick={this.handleClick} block>
+          Validate!
+        </Button>
+        <Button bsStyle="primary" bsSize="large" block>
+          Try again.
+        </Button>
+      </div>
+    </div>
+    <div className="rightPanel"> 
+     <div className="stage"> 
+       <div className="stageText"> Stage: </div> 
+       <div className="actualStage"> {this.state.stage}</div>
+     </div>
+     
+     <div className="message"> YAY, New words added to your notebook! </div>
+     <div className="checkMyNoteBook"> Check my notebook </div>
+   </div>
+   <NextStageButton nextLevel={this.state.actualNextStage} onHandleNextStage={this.handleNextStage}> </NextStageButton>
+ </div>
+</div>
+
+
+</div>
+
     );
   }
 });

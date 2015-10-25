@@ -1,9 +1,54 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol, ul {
+  list-style: none;
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
 body {
   background: #fff;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 15px;
-  line-height: 1.7;
+  /* line-height: 1.7; */
   margin: 0;
+  height: 100%;
 }
 #results {
     background-color: #eee;
@@ -210,7 +255,7 @@ button.btn-block.btn.btn-lg.btn-primary {
 
 .phraseList {
     text-align: center;
-    width: 550px;
+    width: 100%;
     height: 200px;
     margin: 0 auto;
 }
@@ -234,6 +279,7 @@ button.btn-block.btn.btn-lg.btn-primary {
 
 .wrapper {
     /* float: left; */
+    height: 100%;
 }
 
 .left-panel {
@@ -332,7 +378,7 @@ video#video {
 }
 
 video#video1 {
-float: left;height: 200px;width: 300px;}
+/* float: left; */height: 380px;width: 680px;margin-left: calc(50% - 340px);}
 
 video#video2 {
     float: left;
@@ -349,3 +395,115 @@ video#video2 {
 
 .sentencePinyin {
 font-size: 30px;}
+
+html {
+    height: 100%;
+    /* background: url(bg.jpg); */
+}
+
+div#content {
+    height: 100%;
+}
+
+div#topbar {
+    height: 80px;
+    position: relative;
+    box-shadow: 0 1px 11px rgba(0, 0, 0, 0.46);/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#f5fae9+0,f5ebc3+100 */
+    background: #f5fae9;/* Old browsers */
+    background: 
+    -moz-linear-gradient(top,  #f5fae9 0%, #f5ebc3 100%);/* FF3.6+ */
+    background: 
+    -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f5fae9), color-stop(100%,#f5ebc3));/* Chrome,Safari4+ */
+    background: 
+    -webkit-linear-gradient(top,  #f5fae9 0%,#f5ebc3 100%);/* Chrome10+,Safari5.1+ */
+    background: 
+    -o-linear-gradient(top,  #f5fae9 0%,#f5ebc3 100%);/* Opera 11.10+ */
+    background: 
+    -ms-linear-gradient(top,  #f5fae9 0%,#f5ebc3 100%);/* IE10+ */
+    background: linear-gradient(to bottom,  #f5fae9 0%,#f5ebc3 100%);/* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f5fae9', endColorstr='#f5ebc3',GradientType=0 );/* IE6-9 */
+}
+
+span#profile {
+    /* background: red; */
+    position: absolute;
+    left: 0;
+    width: 300px;
+    height: 100%;
+}
+
+span#logo {
+    position: absolute;
+    height: 100%;
+    width: 199px;
+    right: 0;
+    background: url(logo.png);
+    background-size: contain;
+    margin-top: 14px;
+    background-repeat: no-repeat;
+    margin-right: 14px;
+    top: 0;
+}
+
+span#learningChinese {
+    /* background: green; */
+    position: relative;
+    height: 100%;
+    display: block;
+    width: 400px;
+    margin: auto;
+}
+
+div#bottomContent {
+width: 100%;height: 100%;position: absolute;padding-top: 70px;}
+
+div#bgwrapper {
+    /* background: blue; */
+    height: 100%;
+    position: absolute;
+    width: 100%;
+    z-index: 0;
+}
+
+div#bgpicture {
+    width: 100%;
+    position: absolute;
+    height: 100%;
+    background: url(bg.jpg);
+}
+
+div#bgtexture {
+    width: 100%;
+    position: absolute;
+    height: 100%;
+    background: url(papertx.jpg);
+    opacity: 0.9;
+    background-size: contain;
+}
+
+div#sectionLeft {
+    /* background: red; */
+    display: inline-block;
+    width: 30%;
+}
+
+div#sectionMiddle {
+    display: inline-block;
+    width: 40%;
+    vertical-align: top;
+    background: white;
+    height: 610px;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+div#sectionRight {
+    /* background: blue; */
+    width: 30%;
+    display: inline-block;
+    vertical-align: top;
+    right: 0;
+    position: absolute;
+}
+
+div#sectionRight {}
