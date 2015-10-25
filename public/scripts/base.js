@@ -154,7 +154,7 @@ var LEVEL_ONE = {
 };
 
 var LEVEL_TWO = {
-	progress: 0,
+	progress: 40,
 	color: "red",
 	stage: "FOOD",
 	notecards: ["I", "want", "to eat", "10", "apples.", "I want to eat 10 apples."],
