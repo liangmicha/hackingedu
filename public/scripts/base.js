@@ -10,9 +10,9 @@ var NextStageButton = React.createClass({
 				    <div className="card">
 						<div className="nextStageMessage"> Congratulations, you have completed {this.props.stage} </div>
 				    </div>
-	          	<Button bsStyle="primary" bsSize="large" className="nextStage" onClick={this.props.onHandleNextStage} block>
-	          	    NEXT STAGE!
-	          	</Button>
+		          	<Button bsStyle="primary" bsSize="large" className="nextStage" onClick={this.props.onHandleNextStage} block>
+		          	    NEXT STAGE!
+		          	</Button>
 	          	</div>
 			)
 		}
