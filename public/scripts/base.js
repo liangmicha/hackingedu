@@ -8,7 +8,7 @@ var NextStageButton = React.createClass({
 			return (
 				<div className="nextStageWrapper"> 
 				    <div className="card">
-						<div className="nextStageMessage"> Congratulations, you have completed TRAVEL </div>
+						<div className="nextStageMessage"> Congratulations, you have completed {this.props.stage} </div>
 				    </div>
 	          	<Button bsStyle="primary" bsSize="large" className="nextStage" onClick={this.props.onHandleNextStage} block>
 	          	    NEXT STAGE!
@@ -248,10 +248,10 @@ var Content = React.createClass({
 </div>
 
 <div id="bottomContent">
-  <NextStageButton nextLevel={this.state.actualNextStage} onHandleNextStage={this.handleNextStage}> </NextStageButton>
+  <NextStageButton nextLevel={this.state.actualNextStage} onHandleNextStage={this.handleNextStage} stage={this.state.stage}> </NextStageButton>
   <div id="sectionLeft">
   	<div id="stageTitle" className="sectionHeader">
-	<span id="stageTitle" className="sectionTitleHeader">Stage</span><span id="stageDetails">Travel</span>
+	<span id="stageTitle" className="sectionTitleHeader">Stage</span><span id="stageDetails">{this.state.stage}</span>
   	</div>
   <NotecardsList notecards={this.state.notecards} index={this.state.notecardIndex} validated={this.state.validated}> </NotecardsList>
   </div>
