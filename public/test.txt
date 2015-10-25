@@ -1,0 +1,15 @@
+	if (annyang) {
+	  var color = function(color) {
+	  	console.log(color);
+	  }
+	  var consolelog = function(text) {
+	  	console.log(text);
+	  }
+	  var commands = {
+	    'show me *color': color,
+	    '*text': consolelog
+	  };
+
+	  annyang.addCommands(commands);
+	  annyang.start();
+	}

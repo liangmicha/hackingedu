@@ -88,7 +88,7 @@ ul {
 }
 
 .chat-left {
-	background-image: url("profile1.png");
+	/* background-image: url("profile1.png"); */
 	background-size: 100%;
 	background-repeat: no-repeat;
 	height: 200px;
@@ -96,7 +96,7 @@ ul {
 	float: left;
 }
 .chat-right {
-	background-image: url("profile2.png");
+	/* background-image: url("profile2.png"); */
 	background-size: 100%;
 	background-repeat: no-repeat;
 	height: 200px;
@@ -238,11 +238,10 @@ button.btn-block.btn.btn-lg.btn-primary {
 .left-panel {
     float: left;
     width: 650px;
-    height: 1000px;
 }
 
 .rightPanel {
-float: left;width: 300px;height: 1000px;}
+float: left;width: 300px;/* height: 1000px; */}
 
 .container {
     width: 300px;
@@ -325,4 +324,21 @@ button.nextStage.btn-block.btn.btn-lg.btn-primary {
     width: 47px;
     background-size: 47px;
     background-repeat: no-repeat;
+}
+
+video#video {
+    height: 100px;
+}
+
+video#video1 {
+/* width: 100%; */float: left;height: 200px;width: 300px;}
+
+video#video2 {
+    /* width: 100%; */
+    float: left;
+    width: 300px;
+}
+
+.videos {
+    height: 200px;
 }
