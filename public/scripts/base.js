@@ -210,7 +210,9 @@ var Content = React.createClass({
   },
 
   handleNextStage: function() {
-  	return this.setState(LEVEL_TWO);
+  	var actualNextState = LEVEL_TWO;
+  	actualNextState['notecardDone'] = this.state.notecardsDone;
+  	return this.setState(actualNextState);
   },
   render: function() {
   	console.log("here are the notecards done");
