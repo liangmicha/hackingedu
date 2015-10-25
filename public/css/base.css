@@ -535,7 +535,12 @@ div#sectionRight {
     position: absolute;
 }
 
-div#sectionRight {}
+div#sectionRight {
+    background: url(notebook.png);
+    height: 500px;
+    padding: 40px;
+    /* box-shadow: 0 2px 12px black; */
+}
 
 .notecardList {
     background: white;
