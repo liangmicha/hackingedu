@@ -472,6 +472,9 @@ span#learningChinese {
     display: block;
     width: 400px;
     margin: auto;
+    background: url(learningchinese.png);
+    background-repeat: no-repeat;
+    background-position: 50%;
 }
 
 div#bottomContent {

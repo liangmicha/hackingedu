@@ -211,7 +211,7 @@ var Content = React.createClass({
 <div id="topbar">
   <span id="profile">
   <span id="profilePicturetop"></span><span id="profileContainer">
-	  <div id="profileName">Sebastian</div>
+	  <div id="profileName">Sebastian&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lvl. 5</div>
 	  <div id="progressBarContainer">  <ProgressBar color={this.state.color} progress={this.state.progress} /></div>
 	</span>
 
