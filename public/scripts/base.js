@@ -256,7 +256,7 @@ var Content = React.createClass({
   <NotecardsList notecards={this.state.notecards} index={this.state.notecardIndex} validated={this.state.validated}> </NotecardsList>
   </div>
   <div id="sectionMiddle">
-
+  		 <div id="tim"></div>
       <div id="video1" width="320" height="176">
       		<div id="phil"></div>
       </div>
@@ -278,7 +278,7 @@ var Content = React.createClass({
           Try again.
         </Button>
       </div>
-   <div id="tim"></div>
+  
 </div></div>
     );
   }
@@ -300,10 +300,10 @@ ReactDOM.render(
 		console.log("invite received");
 		invite.accept().then(function(conversation){
 			console.log("invite accepted");
-			conversation.localMedia.attach("#phil");
+			conversation.localMedia.attach("#tim");
 			conversation.on("participantConnected",function(participant){
 				console.log("participant connected");
-				participant.media.attach("#tim");
+				participant.media.attach("#phil");
 			})
 		},function(e) {
 			console.error(e);

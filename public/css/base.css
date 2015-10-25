@@ -478,7 +478,7 @@ span#learningChinese {
 }
 
 div#bottomContent {
-width: 100%;height: 100%;position: absolute;padding-top: 70px;}
+width: 100%;height: 100%;position: absolute;max-width: 1360px;padding-top: 70px;margin-left: calc(50% - 680px);}
 
 div#bgwrapper {
     /* background: blue; */
@@ -524,6 +524,7 @@ div#sectionMiddle {
     border-radius: 15px;
     overflow: hidden;
     box-shadow: 0 1px 11px rgba(0, 0, 0, 0.26);
+    position: relative;
 }
 
 div#sectionRight {
@@ -804,17 +805,30 @@ div#notebookwrapper {
 }
 
 div#phil {
-    height: 300px;
+    height: auto;
     width: 100%;
-    float: right;
+    height: 381px;
+    /* float: right; */
+    overflow: hidden;
+    /* margin-top: calc(-50% + 240px); */
 }
 
 div#tim {
-    height: 300px;
-    width: 330px;
-    float: right;
+    height: 90px;
+    width: 130px;
+    /* float: right; */
     border: black solid 1px;
-    position: fixed;
-    bottom: 0;
-    right: 0;
+    position: absolute;
+    bottom: 253px;
+    overflow: hidden;
+    right: 10px;
+}
+
+#phil>video {
+    width: 100%;
+    margin-top: -27px;
+}
+
+#tim>video {
+    width: 100%;
 }
