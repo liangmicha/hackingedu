@@ -123,9 +123,9 @@ var Notebook = React.createClass({
 	          {this.props.notecards.map(function(phraseEnglish, i){
 	                return (
 		                <div className="notebookPhraseWrapper" key={i}> 
-		                	<div className="notebookPhrase" > {phraseEnglish} </div>
-		                	<div className="notebookTranslated"> {this.props.sentence[i]} </div>
-		                	<div className="notebookWordType"> {this.props.wordType[i]} </div>
+		                	<span className="notebookPhrase" > {phraseEnglish} </span><span>=&nbsp;</span>
+		                	<span className="notebookTranslated"> {this.props.sentence[i]} </span>
+		                	<span className="notebookWordType"> {this.props.wordType[i]} </span>
 		                </div>
 		            )
 		        }, this)}
@@ -140,7 +140,7 @@ var LEVEL_ONE = {
 	progress: 0,
 	color: "red",
 	stage: "TRAVEL",
-	sentence: ["I", "want", "to go", "to France.", "I want to go to France."],
+	sentence: ["I", "want", "to go", "to France", "I want to go to France"],
 	sentenceChinese: ["wo", "xiang", "qu", "fa guo", "wo xiang yao qu fa guo"],
 	validated: [false, false, false, false, false],
 	notecards: ["I", "want", "to go", "to France.", "I want to go to France."],
@@ -264,20 +264,17 @@ var Content = React.createClass({
 			    	  {sentenceChineseToSend[this.state.notecardIndex]}
 			      </td></tr></tbody></table>
   </div>
-  <div id="sectionRight"> </div>
+  <div id="sectionRight"> <div id="notebookwrapper"><Notebook notecards={this.state.notecardsDone} sentence={this.state.sentenceChinese} index={this.state.notecardIndex} wordType={this.state.wordType}> 
+	</Notebook></div></div>
 
-
-	<Notebook notecards={this.state.notecardsDone} sentence={this.state.sentenceChinese} index={this.state.notecardIndex} wordType={this.state.wordType}> 
-	</Notebook>
-
-			      <div className="button-wrapper">
-			        <Button bsStyle="primary" bsSize="large" onClick={this.handleClick} block>
-			          Validate!
-			        </Button>
-			        <Button bsStyle="primary" bsSize="large" block>
-			          Try again.
-			        </Button>
-			      </div>
+      <div className="button-wrapper">
+        <Button bsStyle="primary" bsSize="large" onClick={this.handleClick} block>
+          Validate!
+        </Button>
+        <Button bsStyle="primary" bsSize="large" block>
+          Try again.
+        </Button>
+      </div>
 </div></div>
     );
   }
