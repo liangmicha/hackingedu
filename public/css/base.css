@@ -836,15 +836,20 @@ div#tim {
 .overlayMatchingPage {
     z-index: 3;
     position: absolute;
-    height: 815px;
+    height: 865px;
     width: 100%;
     /* background-color: rgb(245, 236, 198); */
     opacity: 1.0;
     top: 0px;
-    width: 100%;
+    width: 1350px;
     background-image: url("matching.jpg");
-    background-size: 100%;
+    background-size: cover;
+    background-position: 50% -114px;
     background-repeat: no-repeat;
+    /* opacity: 0.5; */
+    margin-top: 120px;
+    margin-left: calc(50% - 645px);
+    /* box-shadow: inset 0px 0px 10px rgba(220, 220, 217, 0.59); */
 }
 
 .displaynone {
