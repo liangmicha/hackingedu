@@ -233,7 +233,7 @@ button.btn-block.btn.btn-lg.btn-primary {
 
 .sentenceListValue:hover {
     cursor: pointer;
-    background-color: blue;
+    background-color: #E5E5EA;
 }
 
 .backgroundBlue {
@@ -536,9 +536,9 @@ div#sectionRight {
 }
 
 div#sectionRight {
-    background: url(notebook.png);
+    /* background: url(notebook.png); */
     height: 500px;
-    padding: 40px;
+    padding: 20px;
     /* box-shadow: 0 2px 12px black; */
 }
 
@@ -760,4 +760,45 @@ div#progressBarContainer {
 
 .progress-bar {
     border-radius: 15px;
+}
+
+.notebookList {
+    margin-left: 47px;
+    padding-left: 60px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    padding-top: 1px;
+    margin-top: 20px;
+    vertical-align: top;
+    height: 100%;
+    box-shadow: 0 1px 11px rgba(0, 0, 0, 0.26);
+}
+
+.notebookPhrase {
+    display: inline;
+    /* margin-top: 20px; */
+}
+
+.notebookTranslated {
+    display: inline-block;
+}
+
+.notebookWordType {
+    display: inline;
+    float: right;
+    margin-right: 33px;
+    font-family: "Arial Rounded MT", Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    color: #B2B2B2;
+}
+
+.notebookPhraseWrapper {
+    margin-top: 20px;
+}
+
+div#notebookwrapper {
+    background: url(notebook.png);
+    background-position: -10px;
+    width: 100%;
+    height: 100%;
+    margin-top: -40px;
 }
