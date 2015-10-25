@@ -143,6 +143,8 @@ button.btn-block.btn.btn-lg.btn-primary {
 .video-box {
     height: 100%;
     width: 100%;
+    /* position: absolute; */
+    /* bottom: 0px; */
 }
 
 .topic－english {
@@ -240,7 +242,7 @@ button.btn-block.btn.btn-lg.btn-primary {
 }
 
 .rightPanel {
-float: left;width: 350px;height: 1000px;}
+float: left;width: 300px;height: 1000px;}
 
 .container {
     width: 300px;
@@ -272,4 +274,55 @@ span {}
 
 .listItem {
     height: 50px;
+}
+
+.nextStageWrapper {
+    z-index: 3;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    background-color: orange;
+    opacity: 1.0;
+}
+
+.nextStageMessage {
+    height: 200px;
+    margin-top: 200px;
+    text-align: enter;
+    text-align: center;
+    font-size: 40px;
+    z-index: 5;
+    text-color: white;
+    color: white;
+}
+
+.card {
+    background-color: darkslategrey;
+    height: 300px;
+    width: 500px;
+    margin: 0 auto;
+}
+
+.nextStageButton {
+    width: 100px;
+    height: 60px;
+    margin: 0 auto;
+    background-color: grey;
+}
+
+button.btn-block.btn.btn-lg.btn-primary {
+}
+
+button.nextStage.btn-block.btn.btn-lg.btn-primary {
+    width: 310px;
+    margin: 0 auto;
+}
+
+.currentWordArrow {
+    float: right;
+    background-image: url("arrow.png");
+    height: 47px;
+    width: 47px;
+    background-size: 47px;
+    background-repeat: no-repeat;
 }

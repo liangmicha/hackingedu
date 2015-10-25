@@ -1,15 +1,47 @@
+var NextStageButton = React.createClass({
+	render: function() {
+		if (!this.props.nextLevel) {
+			return (
+				<div className="displaynone"> </div>
+			) 
+		} else {
+			return (
+				<div className="nextStageWrapper"> 
+				    <div className="card">
+						<div className="nextStageMessage"> Congratulations, you have completed TRAVEL </div>
+	          	<Button bsStyle="primary" bsSize="large" className="nextStage" onClick={this.props.onHandleNextStage} block>
+	          	    NEXT STAGE!
+	          	</Button>
+					</div>
+				</div>
+			)
+		}
+	},
+});
+
+
 var NotecardsList = React.createClass({
 	render: function() {
 	    return (
 	        <div className="notecardList">
 	          {this.props.notecards.map(function(listValue, i){
-	          	console.log(this.props.validated[i]);
-	            return (
-	            	<div className="listItem" key={i}>
-	            	    <div className="listValue"> {listValue} </div>
-	            	    <div className="validatedField"> {this.props.validated[i]} </div>
-	            	</div>
-	            )
+	          	var arrow = "Current Word";
+	          	if (i == this.props.index) {
+	          		console.log("here");
+	          		return (
+		            	<div className="listItem" key={i}>
+		            	    <div className="listValue"> {listValue} </div>
+		            	    <div className="currentWordArrow"> </div>
+		            	</div>
+		            )
+	          	} else {
+		            return (
+		            	<div className="listItem" key={i}>
+		            	    <div className="listValue"> {listValue} </div>
+		            	    <div className="validatedField"> {this.props.validated[i]} </div>
+		            	</div>
+		            )
+		        }
 	          }, this)}
 	        </div>
 	    );
@@ -22,7 +54,7 @@ var SentenceList = React.createClass({
 	        <div className="phraseList">
 	          {this.props.sentence.map(function(listValue, i){
 	          	if (i == this.props.notebookIndex) {
-	                return <div className="sentenceListValue" key={i}> {listValue} </div>;
+	                return <div className="sentenceListValue backgroundBlue" key={i}> {listValue} </div>;
 	            } else {
 	            	return <div className="sentenceListValue" key={i}> {listValue} </div>;
 	            }
@@ -86,10 +118,10 @@ var LEVEL_ONE = {
 var LEVEL_TWO = {
 	progress: 0,
 	color: "red",
-	stage: "TRAVEL",
-	sentence: ["I", "want to", "travel", "to France"],
-	validated: [false, false, false, false, false],
-	notecards: ["I", "want to", "travel", "to France", "I want to travel to France"],
+	stage: "FOOD",
+	sentence: ["I", "want to", "eat", "10", "apples."],
+	validated: [false, false, false, false, false, false],
+	notecards: ["I", "want to", "eat", "10", "apples.", "I want to eat 10 apples."],
 	notecardIndex: 0,
 	notecardsDone: [],
 	nextStage: false,
@@ -100,6 +132,7 @@ var Content = React.createClass({
   	return LEVEL_ONE;
   },
   handleClick: function() {
+  	console.log("click!!");
   	var newState = {};
   	var currentIndex = this.state.notecardIndex;
   	newState['notecardsDone'] = [];
@@ -122,7 +155,20 @@ var Content = React.createClass({
     newState['validated'] = this.state.validated;
     newState['stage'] = this.state.stage;
     newState['validated'][currentIndex] = 'Cleared';
+    newState['sentence'] = this.state.sentence;
+    newState['notecards'] = this.state.notecards;
+    console.log("length of newstate sentence is: " + newState['notecards'].length);
+    console.log("index is: " + newState['notecardIndex']);
+    if (newState['notecardIndex'] == newState['notecards'].length ) {
+        //advance to the next level (button)
+        newState['nextStage'] = true;
+    }
   	return this.setState(newState);
+  },
+
+  handleNextStage: function() {
+  	console.log("next level clicked");
+  	return this.setState(LEVEL_TWO);
   },
   render: function() {
     return (
@@ -153,6 +199,9 @@ var Content = React.createClass({
 	          	<Button bsStyle="primary" bsSize="large" onClick={this.handleClick} block>
 	          	    Validate!
 	          	</Button>
+	            <Button bsStyle="primary" bsSize="large" block>
+	          	    Try again.
+	          	</Button>
 		   	  </div>
 			</div>
 			<div className="rightPanel"> 
@@ -164,6 +213,7 @@ var Content = React.createClass({
 		       <div className="message"> YAY, New words added to your notebook! </div>
 		       <div className="checkMyNoteBook"> Check my notebook </div>
 		   </div>
+		   <NextStageButton nextLevel={this.state.nextStage} onHandleNextStage={this.handleNextStage}> </NextStageButton>
 	  </div>
     );
   }
