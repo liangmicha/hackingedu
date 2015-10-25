@@ -285,5 +285,11 @@ var Content = React.createClass({
 
 ReactDOM.render(
   <Content url="/api/comments" pollInterval={2000} />,
-  document.getElementById('content')
+  document.getElementById('content'),
+  function() {
+  	   var vid = document.getElementsByTagName("video")[0];
+       console.log("vid is " + vid);
+       vid.autoplay = true;
+       vid.load();
+  }
 );
