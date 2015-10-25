@@ -255,9 +255,12 @@ var Content = React.createClass({
   	</div>
   <NotecardsList notecards={this.state.notecards} index={this.state.notecardIndex} validated={this.state.validated}> </NotecardsList>
   </div>
-  <div id="sectionMiddle"><video id="video1" width="320" height="176">
-      <source src="video.mp4" type="video/mp4"></source>
-      </video> 
+  <div id="sectionMiddle">
+
+      <div id="video1" width="320" height="176">
+      		<div id="phil"></div>
+      </div>
+
       <SentenceList sentence={sentenceToSend} index={this.state.notecardIndex} highlightAll={highlightAll}>
 	 </SentenceList><table className="translatedWordCont"><tbody><tr>
 	 			      <td className="translatedWord">
@@ -275,6 +278,7 @@ var Content = React.createClass({
           Try again.
         </Button>
       </div>
+   <div id="tim"></div>
 </div></div>
     );
   }
@@ -284,9 +288,28 @@ ReactDOM.render(
   <Content url="/api/comments" pollInterval={2000} />,
   document.getElementById('content'),
   function() {
-  	   var vid = document.getElementsByTagName("video")[0];
-       console.log("vid is " + vid);
-       vid.autoplay = true;
-       vid.load();
+  	   //var vid = document.getElementsByTagName("video")[0];
+       //console.log("vid is " + vid);
+       //vid.autoplay = true;
+       //vid.load();
+
+     //twilio stuff
+	var accessToken = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImN0eSI6InR3aWxpby1zYXQ7dj0xIn0.eyJqdGkiOiJTS2NkNmM0ZDk1OGNmYjMwZDc1ZmMwNWQzMjdjYTY4ZDk4LTE0NDU3MjYyMDIiLCJpc3MiOiJTS2NkNmM0ZDk1OGNmYjMwZDc1ZmMwNWQzMjdjYTY4ZDk4Iiwic3ViIjoiQUM3ZTEyYTUxNDYxMDljZjlhZWI2MWE1MDc5M2EzNTkzNSIsIm5iZiI6MTQ0NTcyNjIwMiwiZXhwIjoxNDQ1ODEyNjAyLCJncmFudHMiOlt7InJlcyI6Imh0dHBzOlwvXC9hcGkudHdpbGlvLmNvbVwvMjAxMC0wNC0wMVwvQWNjb3VudHNcL0FDN2UxMmE1MTQ2MTA5Y2Y5YWViNjFhNTA3OTNhMzU5MzVcL1Rva2Vucy5qc29uIiwiYWN0IjpbIlBPU1QiXX0seyJyZXMiOiJzaXA6anVnZW5tdUBBQzdlMTJhNTE0NjEwOWNmOWFlYjYxYTUwNzkzYTM1OTM1LmVuZHBvaW50LnR3aWxpby5jb20iLCJhY3QiOlsibGlzdGVuIiwiaW52aXRlIl19XX0.R4vXuifiBDSbnuQRA8zpyN_0vZe9pV8l75XImaWYKwE";
+	var endpoint = new Twilio.Endpoint(accessToken);
+	endpoint.on("invite",function(invite){
+		console.log("invite received");
+		invite.accept().then(function(conversation){
+			console.log("invite accepted");
+			conversation.localMedia.attach("#phil");
+			conversation.on("participantConnected",function(participant){
+				console.log("participant connected");
+				participant.media.attach("#tim");
+			})
+		},function(e) {
+			console.error(e);
+		})
+	})
+
+	endpoint.listen();
   }
 );
