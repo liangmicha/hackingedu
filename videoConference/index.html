@@ -1,13 +1,21 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>Document</title>
-	<script type="text/javascript" src="js/jquery.min.js"></script>
-	<script type="text/javascript" src="//media.twiliocdn.com/sdk/rtc/js/conversations/v0.9/twilio-rtc-conversations.min.js"></script>
-	<script type="text/javascript" src="js/videoconference.js"></script>
-	
+	<title>video</title>
 </head>
 <body>
-	
+	<video src="video.mp4" id="video"></video>
 </body>
+
+<script src="js/jquery.min.js"></script>
+<script>
+
+$(document).ready(function(){
+	var video = $("video")[0];
+	video.play();
+});
+
+
+
+</script>
 </html>
