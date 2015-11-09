@@ -50,19 +50,22 @@ LanguageClub is powered by twilio and Dolby for the best quality video and sound
 -------------------------------------------------
 
 
-My 4 teammates an I can speak 13 languages combined. That's 3 BILLION PEOPLE we can speak to!!!! I am learning Japanese and I can tell you it's beautiful. But I can also tell that it's seriously HARD. Most people start, and then dropout because learning platforms today are based on self motivation. Such a waste for a 100B growing market. To us, language is all about communication and is fundamentally social.
+My 4 teammates and I can speak 13 languages total. That's 3 BILLION PEOPLE we can speak to!!!! I am learning Japanese and I can tell you it's beautiful. But I can also tell that it's seriously HARD. Most people start, and then dropout because learning platforms today are based on self motivation. Such a waste for a 100B growing market. To us, language is all about communication and is fundamentally social.
 
-That's why we created LanguageClub, the first online language learning experience that seals your learning into a lifelong friendship. And here is how it works: I want to learn chinese
+That's why we created LanguageClub, the first online language learning experience that seals your learning into a lifelong friendship. 
 
+Here is how it works: I want to learn chinese.
 LanguageClub will match me to an ideal language partner: a native speaker in china who also wants to learn English. 
 
 [demo screen comes in]
-This is Lynn. We do 10 mins of chinese and then we swap. Here is a sentence: "[first sentence to translate]" in english.
+This is Lynn. Hi! Here is a sentence: "[first sentence to translate]" in english.
 [conversation starts with lyn]
-Ha CHACHING! Lynn is happy about what I just said. She validates it, I level up (for real). 
+Ha CHACHING! Lynn just validated it, we can move on. 
 [next] [win!]
-The words I learn automatically go into my own personal chinese notebook.
+This learning session is saved in my note book so that I can go back to it.
 
-LanguageClub is built on Twilio and Dolby for the best clarity sound and video experience, and brand-empowered at language.club! 
+LanguageClub is built on Twilio and Dolby and brand-empowered at language.club! 
 
-Behind this simple example lies a universe of language co-op games to create. With LanguageClub, people bond over a purpose, and make life time friends. So be ready to travel further.
+Beyond this simple example lies a universe of language co-op games to create. With LanguageClub, people bond over a purpose, and make life time friends. So be ready to travel furher.
+
+//language club enables you to form new friendships and learn about other cultures; 

@@ -288,18 +288,18 @@ var Content = React.createClass({
   }
 });
 
+var endpointNameTeacher = "demo1";
+var accessTokenTeacher = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImN0eSI6InR3aWxpby1zYXQ7dj0xIn0.eyJqdGkiOiJTS2NkNmM0ZDk1OGNmYjMwZDc1ZmMwNWQzMjdjYTY4ZDk4LTE0NDYzMTU1NzciLCJpc3MiOiJTS2NkNmM0ZDk1OGNmYjMwZDc1ZmMwNWQzMjdjYTY4ZDk4Iiwic3ViIjoiQUM3ZTEyYTUxNDYxMDljZjlhZWI2MWE1MDc5M2EzNTkzNSIsIm5iZiI6MTQ0NjMxNTU3NywiZXhwIjoxNDQ2NDAxOTc3LCJncmFudHMiOlt7InJlcyI6Imh0dHBzOlwvXC9hcGkudHdpbGlvLmNvbVwvMjAxMC0wNC0wMVwvQWNjb3VudHNcL0FDN2UxMmE1MTQ2MTA5Y2Y5YWViNjFhNTA3OTNhMzU5MzVcL1Rva2Vucy5qc29uIiwiYWN0IjpbIlBPU1QiXX0seyJyZXMiOiJzaXA6ZGVtbzFAQUM3ZTEyYTUxNDYxMDljZjlhZWI2MWE1MDc5M2EzNTkzNS5lbmRwb2ludC50d2lsaW8uY29tIiwiYWN0IjpbImxpc3RlbiIsImludml0ZSJdfV19._IESRLTRtgDt9EJXMHKQc_lpFhSn23AucjlLXEIQUcA";
+var accessTokenStudent = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImN0eSI6InR3aWxpby1zYXQ7dj0xIn0.eyJqdGkiOiJTS2NkNmM0ZDk1OGNmYjMwZDc1ZmMwNWQzMjdjYTY4ZDk4LTE0NDYzMTU2MjIiLCJpc3MiOiJTS2NkNmM0ZDk1OGNmYjMwZDc1ZmMwNWQzMjdjYTY4ZDk4Iiwic3ViIjoiQUM3ZTEyYTUxNDYxMDljZjlhZWI2MWE1MDc5M2EzNTkzNSIsIm5iZiI6MTQ0NjMxNTYyMiwiZXhwIjoxNDQ2NDAyMDIyLCJncmFudHMiOlt7InJlcyI6Imh0dHBzOlwvXC9hcGkudHdpbGlvLmNvbVwvMjAxMC0wNC0wMVwvQWNjb3VudHNcL0FDN2UxMmE1MTQ2MTA5Y2Y5YWViNjFhNTA3OTNhMzU5MzVcL1Rva2Vucy5qc29uIiwiYWN0IjpbIlBPU1QiXX0seyJyZXMiOiJzaXA6bWFtYWxvdmVzbWVAQUM3ZTEyYTUxNDYxMDljZjlhZWI2MWE1MDc5M2EzNTkzNS5lbmRwb2ludC50d2lsaW8uY29tIiwiYWN0IjpbImxpc3RlbiIsImludml0ZSJdfV19.b7fGq5KCnqC4m3TzMJfLfqqHiWEmWxGWKrt_2W2G8TU";
+
+
 ReactDOM.render(
   <Content url="/api/comments" pollInterval={2000} />,
   document.getElementById('content'),
   function() {
-  	   //var vid = document.getElementsByTagName("video")[0];
-       //console.log("vid is " + vid);
-       //vid.autoplay = true;
-       //vid.load();
 
-     //twilio stuff
     if (iAmTeacher) {
-		var accessToken = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImN0eSI6InR3aWxpby1zYXQ7dj0xIn0.eyJqdGkiOiJTS2NkNmM0ZDk1OGNmYjMwZDc1ZmMwNWQzMjdjYTY4ZDk4LTE0NDU4MTU4ODIiLCJpc3MiOiJTS2NkNmM0ZDk1OGNmYjMwZDc1ZmMwNWQzMjdjYTY4ZDk4Iiwic3ViIjoiQUM3ZTEyYTUxNDYxMDljZjlhZWI2MWE1MDc5M2EzNTkzNSIsIm5iZiI6MTQ0NTgxNTg4MiwiZXhwIjoxNDQ1OTAyMjgyLCJncmFudHMiOlt7InJlcyI6Imh0dHBzOlwvXC9hcGkudHdpbGlvLmNvbVwvMjAxMC0wNC0wMVwvQWNjb3VudHNcL0FDN2UxMmE1MTQ2MTA5Y2Y5YWViNjFhNTA3OTNhMzU5MzVcL1Rva2Vucy5qc29uIiwiYWN0IjpbIlBPU1QiXX0seyJyZXMiOiJzaXA6bWFtYWxvdmVzbWVAQUM3ZTEyYTUxNDYxMDljZjlhZWI2MWE1MDc5M2EzNTkzNS5lbmRwb2ludC50d2lsaW8uY29tIiwiYWN0IjpbImxpc3RlbiIsImludml0ZSJdfV19.STi7PndGFJTJcA4hGp2f6hh1b5j7ZRj9cRyK7OJyF0Y";
+		var accessToken = accessTokenTeacher;
 		var endpoint = new Twilio.Endpoint(accessToken);
 		endpoint.on("invite",function(invite){
 			console.log("invite received");
@@ -316,9 +316,9 @@ ReactDOM.render(
 		})
 		endpoint.listen();
 	} else {
-		var accessToken = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImN0eSI6InR3aWxpby1zYXQ7dj0xIn0.eyJqdGkiOiJTS2NkNmM0ZDk1OGNmYjMwZDc1ZmMwNWQzMjdjYTY4ZDk4LTE0NDU4MTU4NDkiLCJpc3MiOiJTS2NkNmM0ZDk1OGNmYjMwZDc1ZmMwNWQzMjdjYTY4ZDk4Iiwic3ViIjoiQUM3ZTEyYTUxNDYxMDljZjlhZWI2MWE1MDc5M2EzNTkzNSIsIm5iZiI6MTQ0NTgxNTg0OSwiZXhwIjoxNDQ1OTAyMjQ5LCJncmFudHMiOlt7InJlcyI6Imh0dHBzOlwvXC9hcGkudHdpbGlvLmNvbVwvMjAxMC0wNC0wMVwvQWNjb3VudHNcL0FDN2UxMmE1MTQ2MTA5Y2Y5YWViNjFhNTA3OTNhMzU5MzVcL1Rva2Vucy5qc29uIiwiYWN0IjpbIlBPU1QiXX0seyJyZXMiOiJzaXA6bGl0dGxld2luZ0BBQzdlMTJhNTE0NjEwOWNmOWFlYjYxYTUwNzkzYTM1OTM1LmVuZHBvaW50LnR3aWxpby5jb20iLCJhY3QiOlsibGlzdGVuIiwiaW52aXRlIl19XX0.uSGVvRP696iff0mpd2aBlkJZt0ddDyWVU_3OBS9u6E8";
+		var accessToken = accessTokenStudent;
 		var endpoint = new Twilio.Endpoint(accessToken);
-		endpoint.createConversation('mamalovesme').then(function(conversation){
+		endpoint.createConversation(endpointNameTeacher).then(function(conversation){
 			conversation.localMedia.attach("#tim");
 			conversation.on('participantConnected',function(participant){
 				participant.media.attach("#phil"); 
@@ -327,3 +327,7 @@ ReactDOM.render(
 	}
   }
 );
+
+/**
+
+How to make 
