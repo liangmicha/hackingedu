@@ -478,7 +478,7 @@ span#learningChinese {
 }
 
 div#bottomContent {
-width: 100%;height: 100%;position: absolute;padding-top: 70px;}
+width: 100%;height: 100%;position: absolute;max-width: 1360px;padding-top: 70px;margin-left: calc(50% - 680px);}
 
 div#bgwrapper {
     /* background: blue; */
@@ -524,6 +524,7 @@ div#sectionMiddle {
     border-radius: 15px;
     overflow: hidden;
     box-shadow: 0 1px 11px rgba(0, 0, 0, 0.26);
+    position: relative;
 }
 
 div#sectionRight {
@@ -801,4 +802,66 @@ div#notebookwrapper {
     width: 100%;
     height: 100%;
     margin-top: -40px;
+}
+
+div#phil {
+    height: auto;
+    width: 100%;
+    height: 381px;
+    /* float: right; */
+    overflow: hidden;
+    /* margin-top: calc(-50% + 240px); */
+}
+
+div#tim {
+    height: 90px;
+    width: 130px;
+    /* float: right; */
+    border: black solid 1px;
+    position: absolute;
+    bottom: 253px;
+    overflow: hidden;
+    right: 10px;
+}
+
+#phil>video {
+    width: 100%;
+    margin-top: -27px;
+}
+
+#tim>video {
+    width: 100%;
+}
+
+.overlayMatchingPage {
+    z-index: 3;
+    position: absolute;
+    height: 865px;
+    width: 100%;
+    /* background-color: rgb(245, 236, 198); */
+    opacity: 1.0;
+    top: 0px;
+    width: 1350px;
+    background-image: url("matching.jpg");
+    background-size: cover;
+    background-position: 50% -114px;
+    background-repeat: no-repeat;
+    /* opacity: 0.5; */
+    margin-top: 120px;
+    margin-left: calc(50% - 645px);
+    /* box-shadow: inset 0px 0px 10px rgba(220, 220, 217, 0.59); */
+}
+
+.displaynone {
+    display: none;
+}
+
+.button-wrapper-fake {
+    height: 400px;
+    width: 100%;
+    margin-top: -100px;
+}
+
+.overlayMatchingPage:hover {
+    cursor: pointer;
 }

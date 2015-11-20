@@ -5,14 +5,16 @@ var NextStageButton = React.createClass({
 				<div className="displaynone"> </div>
 			) 
 		} else {
+    var audio = new Audio('smw_course_clear.mp3');
+    audio.play();
 			return (
 				<div className="nextStageWrapper"> 
 				    <div className="card">
-						<div className="nextStageMessage"> Congratulations, you have completed TRAVEL </div>
+						<div className="nextStageMessage"> Congratulations, you have completed {this.props.stage} </div>
 				    </div>
-	          	<Button bsStyle="primary" bsSize="large" className="nextStage" onClick={this.props.onHandleNextStage} block>
-	          	    NEXT STAGE!
-	          	</Button>
+		          	<Button bsStyle="primary" bsSize="large" className="nextStage" onClick={this.props.onHandleNextStage} block>
+		          	    NEXT STAGE!
+		          	</Button>
 	          	</div>
 			)
 		}
@@ -154,7 +156,7 @@ var LEVEL_ONE = {
 };
 
 var LEVEL_TWO = {
-	progress: 0,
+	progress: 40,
 	color: "red",
 	stage: "FOOD",
 	notecards: ["I", "want", "to eat", "10", "apples.", "I want to eat 10 apples."],
@@ -214,6 +216,11 @@ var Content = React.createClass({
   	actualNextState['notecardDone'] = this.state.notecardsDone;
   	return this.setState(actualNextState);
   },
+  handleMatchingClick: function() {
+  	console.log("click detected");
+  	$(".overlayMatchingPage").delay(1000).addClass("displaynone");
+  	console.log("changed.");
+  },
   render: function() {
   	console.log("here are the notecards done");
   	console.log(this.state.notecardsDone);
@@ -246,18 +253,22 @@ var Content = React.createClass({
   <span id="learningChinese"></span>
   <span id="logo"><img src="" alt="" id="logoimage"/></span>
 </div>
+<div className="overlayMatchingPage" onClick={this.handleMatchingClick}> </div>
 
 <div id="bottomContent">
-  <NextStageButton nextLevel={this.state.actualNextStage} onHandleNextStage={this.handleNextStage}> </NextStageButton>
+  <NextStageButton nextLevel={this.state.actualNextStage} onHandleNextStage={this.handleNextStage} stage={this.state.stage}> </NextStageButton>
   <div id="sectionLeft">
   	<div id="stageTitle" className="sectionHeader">
-	<span id="stageTitle" className="sectionTitleHeader">Stage</span><span id="stageDetails">Travel</span>
+	<span id="stageTitle" className="sectionTitleHeader">Stage</span><span id="stageDetails">{this.state.stage}</span>
   	</div>
   <NotecardsList notecards={this.state.notecards} index={this.state.notecardIndex} validated={this.state.validated}> </NotecardsList>
   </div>
-  <div id="sectionMiddle"><video id="video1" width="320" height="176">
-      <source src="video.mp4" type="video/mp4"></source>
-      </video> 
+  <div id="sectionMiddle">
+  		 <div id="tim"></div>
+      <div id="video1" width="320" height="176">
+      		<div id="phil"></div>
+      </div>
+
       <SentenceList sentence={sentenceToSend} index={this.state.notecardIndex} highlightAll={highlightAll}>
 	 </SentenceList><table className="translatedWordCont"><tbody><tr>
 	 			      <td className="translatedWord">
@@ -267,26 +278,56 @@ var Content = React.createClass({
   <div id="sectionRight"> <div id="notebookwrapper"><Notebook notecards={this.state.notecardsDone} sentence={this.state.sentenceChinese} index={this.state.notecardIndex} wordType={this.state.wordType}> 
 	</Notebook></div></div>
 
-      <div className="button-wrapper">
-        <Button bsStyle="primary" bsSize="large" onClick={this.handleClick} block>
-          Validate!
-        </Button>
-        <Button bsStyle="primary" bsSize="large" block>
-          Try again.
-        </Button>
+      <div className="button-wrapper-fake" onClick={this.handleClick}>
+
       </div>
-</div></div>
+  
+</div>
+</div>
     );
   }
 });
+
+var endpointNameTeacher = "demo1";
+var accessTokenTeacher = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImN0eSI6InR3aWxpby1zYXQ7dj0xIn0.eyJqdGkiOiJTS2NkNmM0ZDk1OGNmYjMwZDc1ZmMwNWQzMjdjYTY4ZDk4LTE0NDYzMTU1NzciLCJpc3MiOiJTS2NkNmM0ZDk1OGNmYjMwZDc1ZmMwNWQzMjdjYTY4ZDk4Iiwic3ViIjoiQUM3ZTEyYTUxNDYxMDljZjlhZWI2MWE1MDc5M2EzNTkzNSIsIm5iZiI6MTQ0NjMxNTU3NywiZXhwIjoxNDQ2NDAxOTc3LCJncmFudHMiOlt7InJlcyI6Imh0dHBzOlwvXC9hcGkudHdpbGlvLmNvbVwvMjAxMC0wNC0wMVwvQWNjb3VudHNcL0FDN2UxMmE1MTQ2MTA5Y2Y5YWViNjFhNTA3OTNhMzU5MzVcL1Rva2Vucy5qc29uIiwiYWN0IjpbIlBPU1QiXX0seyJyZXMiOiJzaXA6ZGVtbzFAQUM3ZTEyYTUxNDYxMDljZjlhZWI2MWE1MDc5M2EzNTkzNS5lbmRwb2ludC50d2lsaW8uY29tIiwiYWN0IjpbImxpc3RlbiIsImludml0ZSJdfV19._IESRLTRtgDt9EJXMHKQc_lpFhSn23AucjlLXEIQUcA";
+var accessTokenStudent = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImN0eSI6InR3aWxpby1zYXQ7dj0xIn0.eyJqdGkiOiJTS2NkNmM0ZDk1OGNmYjMwZDc1ZmMwNWQzMjdjYTY4ZDk4LTE0NDYzMTU2MjIiLCJpc3MiOiJTS2NkNmM0ZDk1OGNmYjMwZDc1ZmMwNWQzMjdjYTY4ZDk4Iiwic3ViIjoiQUM3ZTEyYTUxNDYxMDljZjlhZWI2MWE1MDc5M2EzNTkzNSIsIm5iZiI6MTQ0NjMxNTYyMiwiZXhwIjoxNDQ2NDAyMDIyLCJncmFudHMiOlt7InJlcyI6Imh0dHBzOlwvXC9hcGkudHdpbGlvLmNvbVwvMjAxMC0wNC0wMVwvQWNjb3VudHNcL0FDN2UxMmE1MTQ2MTA5Y2Y5YWViNjFhNTA3OTNhMzU5MzVcL1Rva2Vucy5qc29uIiwiYWN0IjpbIlBPU1QiXX0seyJyZXMiOiJzaXA6bWFtYWxvdmVzbWVAQUM3ZTEyYTUxNDYxMDljZjlhZWI2MWE1MDc5M2EzNTkzNS5lbmRwb2ludC50d2lsaW8uY29tIiwiYWN0IjpbImxpc3RlbiIsImludml0ZSJdfV19.b7fGq5KCnqC4m3TzMJfLfqqHiWEmWxGWKrt_2W2G8TU";
+
 
 ReactDOM.render(
   <Content url="/api/comments" pollInterval={2000} />,
   document.getElementById('content'),
   function() {
-  	   var vid = document.getElementsByTagName("video")[0];
-       console.log("vid is " + vid);
-       vid.autoplay = true;
-       vid.load();
+
+    if (iAmTeacher) {
+		var accessToken = accessTokenTeacher;
+		var endpoint = new Twilio.Endpoint(accessToken);
+		endpoint.on("invite",function(invite){
+			console.log("invite received");
+			invite.accept().then(function(conversation){
+				console.log("invite accepted");
+				conversation.localMedia.attach("#phil");
+				conversation.on("participantConnected",function(participant){
+					console.log("participant connected");
+					participant.media.attach("#tim");
+				})
+			},function(e) {
+				console.error(e);
+			})
+		})
+		endpoint.listen();
+	} else {
+		var accessToken = accessTokenStudent;
+		var endpoint = new Twilio.Endpoint(accessToken);
+		endpoint.createConversation(endpointNameTeacher).then(function(conversation){
+			conversation.localMedia.attach("#tim");
+			conversation.on('participantConnected',function(participant){
+				participant.media.attach("#phil"); 
+			})
+		});
+	}
   }
 );
+
+/**
+
+How to make 
